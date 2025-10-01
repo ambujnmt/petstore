@@ -1,0 +1,55 @@
+name: pinkpawscat
+description: "A new PinkPawsCat project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.8
+  get: ^4.7.0
+  advanced_salomon_bottom_bar: ^3.3.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^4.0.0
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/logo.png"
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: QuickSandBold
+      fonts:
+        - asset: assets/fonts/Quicksand-Bold.ttf
+    - family: QuickSandLight
+      fonts:
+        - asset: assets/fonts/Quicksand-Light.ttf
+    - family: QuickSandMedium
+      fonts:
+        - asset: assets/fonts/Quicksand-Medium.ttf
+    - family: QuickSandRegular
+      fonts:
+        - asset: assets/fonts/Quicksand-Regular.ttf
+    - family: PoppinsMedium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.ttf
