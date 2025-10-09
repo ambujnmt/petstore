@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinkpawscat/views/screens/login_screen.dart';
+import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinkpawscat/constants/color_constants.dart';
+import '../../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/nav_screen.dart';
 import 'package:pinkpawscat/views/screens/signup_screen.dart';
 
@@ -40,48 +38,15 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 60),
                 const Spacer(flex: 2),
-                TextField(
+                AppTextField(
                   controller: emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.email_outlined),
-                    hintText: "Email Address",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide:
-                          const BorderSide(color: Colors.pink, width: 2),
-                    ),
-                  ),
+                  hintText: 'Email Address',
+                  prefixIcon: const Icon(Icons.email_outlined),
                 ),
-                const SizedBox(height: 16),
-                TextField(
+                AppTextField(
                   controller: passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.lock_outline),
-                    hintText: "Password",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: Colors.grey),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide:
-                          const BorderSide(color: Colors.pink, width: 2),
-                    ),
-                  ),
+                  hintText: 'Password',
+                  prefixIcon: const Icon(Icons.lock_outline),
                 ),
                 Align(
                   alignment: Alignment.centerRight,
@@ -93,18 +58,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.to(const NavScreen());
-                    },
-                    child: Image.asset(
-                      'assets/images/loginbtn.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                heightSpace30,
+                AppButton(
+                  text: 'LOGIN',
+                  onTap: () => Get.to(const NavScreen()),
                 ),
                 const SizedBox(height: 1),
                 const Spacer(flex: 2),

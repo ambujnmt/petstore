@@ -26,8 +26,8 @@ class CustomText {
       hint,
       style: TextStyle(
         fontFamily: CustomFonts.quicksand,
-        fontSize: size,
-        fontWeight: weight ?? FontWeight.w500,
+        fontSize: size ?? 16,
+        fontWeight: weight ?? FontWeight.w600,
         color: color ?? black,
       ),
       textAlign: align ?? TextAlign.start,
