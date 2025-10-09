@@ -11,8 +11,6 @@ class EditAddressScreen extends StatefulWidget {
 }
 
 class _EditAddressScreenState extends State<EditAddressScreen> {
-  final customText = CustomText();
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -84,8 +82,12 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                     Icon(Icons.my_location,
                         color: Colors.pink, size: screenWidth * 0.05),
                     SizedBox(width: screenWidth * 0.02),
-                    customText.kText('Use Current Location', screenWidth * 0.04,
-                        FontWeight.w600, ColorConstants.selctedColor, TextAlign.start)
+                    CustomText.qText(
+                      'Use Current Location',
+                      size: screenWidth * 0.04,
+                      weight: FontWeight.w600,
+                      color: ColorConstants.selctedColor,
+                    )
                   ],
                 ),
               ),
@@ -121,32 +123,32 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                           color: Colors.red, size: screenWidth * 0.06),
                       SizedBox(width: screenWidth * 0.02),
                       Expanded(
-                        child:
-                        customText.kText("Lorem Ipsum", screenWidth * 0.045, FontWeight.w500, ColorConstants.kBlack, TextAlign.start)
+                        child: CustomText.qText("Lorem Ipsum",
+                            size: screenWidth * 0.045),
                       ),
                       OutlinedButton(
-                        onPressed: () {},
-                        style: OutlinedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.04,
-                            vertical: screenHeight * 0.01,
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: screenWidth * 0.04,
+                              vertical: screenHeight * 0.01,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                        child:
-                        customText.kPText('Change Location', 12, FontWeight.w500, Colors.black, TextAlign.start)
-                      )
+                          child: CustomText.pText('Change Location', size: 12))
                     ],
                   ),
                   SizedBox(height: screenHeight * 0.01),
-                  customText.kPText('106, Lorem Ipsum is simply dummy text of the printing and type setting industry.', 12, FontWeight.w600, Colors.black, TextAlign.start),
+                  CustomText.pText(
+                      '106, Lorem Ipsum is simply dummy text of the printing and type setting industry.',
+                      size: 12,
+                      weight: FontWeight.w600),
                   SizedBox(height: screenHeight * 0.02),
                   SizedBox(
-                    width: double.infinity,
-                    child: Image.asset('assets/images/confirmbtn.png')
-                  )
+                      width: double.infinity,
+                      child: Image.asset('assets/images/confirmbtn.png'))
                 ],
               ),
             ),

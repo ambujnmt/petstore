@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:advanced_salomon_bottom_bar/advanced_salomon_bottom_bar.dart';
 import 'package:pinkpawscat/constants/color_constants.dart';
-import 'package:pinkpawscat/screens/HomeScreen.dart';
-import 'package:pinkpawscat/screens/like_screen.dart';
-import 'package:pinkpawscat/screens/menu_screen.dart';
-import 'package:pinkpawscat/screens/profile.dart';
+import 'package:pinkpawscat/views/screens/home_screen.dart';
+import 'package:pinkpawscat/views/screens/like_screen.dart';
+import 'package:pinkpawscat/views/screens/menu_screen.dart';
+import 'package:pinkpawscat/views/screens/profile.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({super.key});

@@ -1,60 +1,86 @@
-import 'package:flutter/material.dart';
+import 'app_imports.dart';
 
 class CustomText {
-  kLogoName() {
+  static Text kLogoName() {
     return const Text(
       "Pinkpawsact",
       style: TextStyle(
+        fontFamily: CustomFonts.quicksand,
         fontSize: 25,
         fontWeight: FontWeight.bold,
         color: Colors.white,
-        fontFamily: "QuickSandBold",
       ),
     );
   }
-  kText(String hint, double fontSize, FontWeight fontWeight, Color color,
-      TextAlign textAlign, [TextOverflow? textOverFlow, int? lines]) {
+
+  static Text qText(
+    String hint, {
+    double? size,
+    FontWeight? weight,
+    Color? color,
+    TextAlign? align,
+    TextOverflow? textOverFlow,
+    int? lines,
+  }) {
     return Text(
       hint,
       style: TextStyle(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
+        fontFamily: CustomFonts.quicksand,
+        fontSize: size,
+        fontWeight: weight ?? FontWeight.w500,
+        color: color ?? black,
+      ),
+      textAlign: align ?? TextAlign.start,
+      overflow: textOverFlow ?? TextOverflow.ellipsis,
+      maxLines: lines ?? 2,
+    );
+  }
+
+  static Text pText(
+    String hint, {
+    double? size,
+    FontWeight? weight,
+    Color? color,
+    TextAlign? align,
+    TextOverflow? textOverFlow,
+    int? lines,
+  }) {
+    return Text(
+      hint,
+      style: TextStyle(
+        fontFamily: CustomFonts.poppins,
+        fontSize: size ?? 15,
+        fontWeight: weight ?? FontWeight.w500,
         color: color,
-        fontFamily: "QuickSandBold"),
-      textAlign: textAlign,
+      ),
+      textAlign: align ?? TextAlign.start,
       overflow: textOverFlow ?? TextOverflow.ellipsis,
       maxLines: lines ?? 2,
     );
   }
 
-  kPText(String hint, double fontSize, FontWeight fontWeight, Color color,
-      TextAlign textAlign, [TextOverflow? textOverFlow, int? lines]) {
-    return Text(
-      hint,
-      style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          color: color,
-          fontFamily: "PoppinsMedium"),
-      textAlign: textAlign,
-      overflow: textOverFlow ?? TextOverflow.ellipsis,
-      maxLines: lines ?? 2,
-    );
-  }
-
-  kTextStyle(double fontSize, FontWeight fontWeight, Color color) {
+  static TextStyle qTextStyle(
+      {double? size, FontWeight? weight, Color? color}) {
     return TextStyle(
-      fontSize: fontSize,
-      fontWeight: fontWeight,
+      fontFamily: CustomFonts.quicksand,
+      fontSize: size,
+      fontWeight: weight,
       color: color,
-      fontFamily: "QuickSandBold");
-  }
-  kPTextStyle(double fontSize, FontWeight fontWeight, Color color) {
-    return TextStyle(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        color: color,
-        fontFamily: "PoppinsMedium");
+    );
   }
 
+  static TextStyle pTextStyle(
+      {double? size, FontWeight? weight, Color? color}) {
+    return TextStyle(
+      fontFamily: CustomFonts.poppins,
+      fontSize: size,
+      fontWeight: weight,
+      color: color,
+    );
+  }
+}
+
+class CustomFonts {
+  static const poppins = 'Poppins';
+  static const quicksand = 'Quicksand';
 }

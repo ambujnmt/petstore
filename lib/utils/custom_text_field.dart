@@ -31,8 +31,6 @@ class CustomTextField extends StatelessWidget {
     this.readOnly = false,
   });
 
-  final customText = CustomText();
-
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -52,16 +50,18 @@ class CustomTextField extends StatelessWidget {
         obscureText: obsecureText,
         keyboardType: textInputType,
         textInputAction: textInputAction,
-        style: customText.kTextStyle(
-            20, FontWeight.w400, ColorConstants.kDarkGrey),
+        style: CustomText.qTextStyle(
+            size: 20, weight: FontWeight.w400, color: ColorConstants.kDarkGrey),
         cursorColor: ColorConstants.kDarkGrey,
         decoration: InputDecoration(
           isCollapsed: true,
           contentPadding: const EdgeInsets.only(top: 5),
           border: InputBorder.none,
           hintText: hint,
-          hintStyle: customText.kTextStyle(
-              20, FontWeight.w400, ColorConstants.kDarkGrey),
+          hintStyle: CustomText.qTextStyle(
+              size: 20,
+              weight: FontWeight.w400,
+              color: ColorConstants.kDarkGrey),
           // prefixIcon: prefixIcon,
           // suffixIcon: isSuffixIcon
           //     ? GestureDetector(

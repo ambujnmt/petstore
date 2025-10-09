@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinkpawscat/screens/payment_screen.dart';
-import '../utils/custom_text.dart';
+import 'package:pinkpawscat/views/screens/payment_screen.dart';
+import '../../utils/custom_text.dart';
 
 class AddressBillingPage extends StatefulWidget {
   const AddressBillingPage({super.key});
@@ -9,8 +9,8 @@ class AddressBillingPage extends StatefulWidget {
   @override
   State<AddressBillingPage> createState() => _AddressBillingPageState();
 }
+
 class _AddressBillingPageState extends State<AddressBillingPage> {
-  final customText = CustomText();
   final nameController = TextEditingController();
   final lastController = TextEditingController();
   final companyNameController = TextEditingController();
@@ -60,12 +60,11 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
             ),
           ),
         ),
-        title: customText.kText(
+        title: CustomText.qText(
           'Your order',
-          20,
-          FontWeight.w700,
-          const Color(0xff4e1c74),
-          TextAlign.start,
+          size: 20,
+          weight: FontWeight.w700,
+          color: const Color(0xff4e1c74),
         ),
       ),
       body: SingleChildScrollView(
@@ -78,39 +77,57 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
           children: [
             Container(
               padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: new BoxDecoration(
-                  color:  Colors.white,
-                  boxShadow: const [BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 5.0,
-                  ),],
-                  borderRadius: BorderRadius.circular(6)
-              ),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 5.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(6)),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customText.kPText('Summary', 16, FontWeight.w600,
-                        Colors.black, TextAlign.start),
+                    CustomText.pText(
+                      'Summary',
+                      size: 16,
+                      weight: FontWeight.w600,
+                    ),
                     SizedBox(height: height * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        customText.kPText('Subtotal', 14, FontWeight.w500,
-                            Colors.grey.shade600, TextAlign.start),
-                        customText.kPText('\$1550.00', 14, FontWeight.w500,
-                            Colors.black, TextAlign.start),
+                        CustomText.pText(
+                          'Subtotal',
+                          size: 14,
+                          color: Colors.grey.shade600,
+                        ),
+                        CustomText.pText(
+                          '\$1550.00',
+                          size: 14,
+                          color: Colors.black,
+                        ),
                       ],
                     ),
-                    SizedBox(height: height * 0.03,),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        customText.kPText('Delivery', 14, FontWeight.w500,
-                            Colors.grey.shade600, TextAlign.start),
-                        customText.kPText('Free', 14, FontWeight.w500,
-                            Colors.green, TextAlign.start),
+                        CustomText.pText(
+                          'Delivery',
+                          size: 14,
+                          color: Colors.grey.shade600,
+                        ),
+                        CustomText.pText(
+                          'Free',
+                          size: 14,
+                          color: Colors.green,
+                        ),
                       ],
                     ),
                     SizedBox(height: height * 0.03),
@@ -119,24 +136,23 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                         color: const Color(0xffeff6ff),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: customText.kPText(
+                          child: CustomText.pText(
                             'Adoption fees help cover vaccinations,\nmicrochipping, and initial veterinary care.',
-                            11,
-                            FontWeight.w400,
-                            const Color(0xff1e40af),
-                            TextAlign.start,
+                            size: 11,
+                            weight: FontWeight.w400,
+                            color: const Color(0xff1e40af),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: height * 0.03,),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        customText.kPText('Total', 15, FontWeight.w600,
-                            Colors.black, TextAlign.start),
-                        customText.kPText('\$1550.00', 15, FontWeight.w600,
-                            Colors.black, TextAlign.start),
+                        CustomText.pText('Total', weight: FontWeight.w600),
+                        CustomText.pText('\$1550.00', weight: FontWeight.w600),
                       ],
                     ),
                   ],
@@ -146,21 +162,25 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
             SizedBox(height: height * 0.03),
             Container(
               padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: new BoxDecoration(
-                  color:  Colors.white,
-                  boxShadow: const [BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 5.0,
-                  ),],
-                  borderRadius: BorderRadius.circular(6)
-              ),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 5.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(6)),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customText.kText('Billing Details', 18, FontWeight.w700,
-                         Colors.black, TextAlign.start),
+                    CustomText.qText(
+                      'Billing Details',
+                      size: 18,
+                      weight: FontWeight.w700,
+                    ),
                     SizedBox(height: height * 0.02),
                     Row(
                       children: [
@@ -168,12 +188,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              customText.kText(
-                                  'First Name',
-                                  12,
-                                  FontWeight.w500,
-                                  Colors.black,
-                                  TextAlign.start),
+                              CustomText.qText('First Name', size: 12),
                               const SizedBox(height: 5),
                               TextField(
                                 controller: nameController,
@@ -187,8 +202,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              customText.kText('Last Name', 12, FontWeight.w500,
-                                   Colors.black, TextAlign.start),
+                              CustomText.qText('Last Name', size: 12),
                               const SizedBox(height: 5),
                               TextField(
                                 controller: lastController,
@@ -215,25 +229,32 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
               ),
             ),
             SizedBox(height: height * 0.03),
-            customText.kPText("Ship to a different address?", 14, FontWeight.w500, Colors.grey, TextAlign.start),
-            SizedBox(height: height * 0.03,),
+            CustomText.pText("Ship to a different address?",
+                size: 14, color: Colors.grey),
+            SizedBox(
+              height: height * 0.03,
+            ),
             Container(
               padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: new BoxDecoration(
-                  color:  Colors.white,
-                  boxShadow: const [BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 5.0,
-                  ),],
-                borderRadius: BorderRadius.circular(6)
-              ),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 5.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(6)),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customText.kText('Billing Details', 18, FontWeight.w700,
-                        Colors.black, TextAlign.start),
+                    CustomText.qText(
+                      'Billing Details',
+                      size: 18,
+                      weight: FontWeight.w700,
+                    ),
                     SizedBox(height: height * 0.02),
                     Row(
                       children: [
@@ -241,12 +262,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              customText.kText(
-                                  'First Name',
-                                  12,
-                                  FontWeight.w500,
-                                  Colors.black,
-                                  TextAlign.start),
+                              CustomText.qText('First Name', size: 12),
                               const SizedBox(height: 5),
                               TextField(
                                 controller: nameController,
@@ -260,8 +276,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              customText.kText('Last Name', 12, FontWeight.w500,
-                                  Colors.black, TextAlign.start),
+                              CustomText.qText('Last Name', size: 12),
                               const SizedBox(height: 5),
                               TextField(
                                 controller: lastController,
@@ -287,8 +302,11 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                 ),
               ),
             ),
-            customText.kText("Order notes (optional)", 18, FontWeight.w700,
-                Colors.black, TextAlign.start),
+            CustomText.qText(
+              "Order notes (optional)",
+              size: 18,
+              weight: FontWeight.w700,
+            ),
             const SizedBox(height: 8),
             TextField(
               controller: noteController,
@@ -299,7 +317,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
             SizedBox(height: height * 0.03),
             Center(
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Get.to(const PaymentScreen());
                 },
                 child: Image.asset(
@@ -309,7 +327,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                   fit: BoxFit.contain,
                 ),
               ),
-              )
+            )
           ],
         ),
       ),
@@ -322,9 +340,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (label.isNotEmpty)
-            customText.kPText(
-                label, 12, FontWeight.w500, Colors.black, TextAlign.start),
+          if (label.isNotEmpty) CustomText.pText(label, size: 12),
           const SizedBox(height: 5),
           TextField(
             controller: controller,

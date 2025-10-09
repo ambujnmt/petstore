@@ -11,9 +11,6 @@ class SaveAddressScreen extends StatefulWidget {
 }
 
 class _SaveAddressScreenState extends State<SaveAddressScreen> {
-  final customText = CustomText();
-
-  
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -34,12 +31,11 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
             ),
           ),
         ),
-        title: customText.kText(
+        title: CustomText.qText(
           'Save Address',
-          screenWidth * 0.05,
-          FontWeight.w700,
-          const Color(0xff4e1c74),
-          TextAlign.start,
+          size: screenWidth * 0.05,
+          weight: FontWeight.w700,
+          color: const Color(0xff4e1c74),
         ),
       ),
       body: Padding(
@@ -59,22 +55,17 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
                       children: [
                         const Icon(Icons.home),
                         SizedBox(width: screenWidth * 0.02),
-                        customText.kText(
+                        CustomText.qText(
                           'Home',
-                          screenWidth * 0.05,
-                          FontWeight.w700,
-                          Colors.black,
-                          TextAlign.start,
+                          size: screenWidth * 0.05,
+                          weight: FontWeight.w700,
                         ),
                       ],
                     ),
                     SizedBox(height: screenHeight * 0.01),
-                    customText.kPText(
+                    CustomText.pText(
                       '106, Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                      screenWidth * 0.035,
-                      FontWeight.w500,
-                      Colors.black,
-                      TextAlign.start,
+                      size: screenWidth * 0.035,
                     ),
                     SizedBox(height: screenHeight * 0.015),
                     Row(
@@ -82,23 +73,21 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {},
-                          child: customText.kText(
+                          child: CustomText.qText(
                             'Edit',
-                            screenWidth * 0.045,
-                            FontWeight.w700,
-                            ColorConstants.selctedColor,
-                            TextAlign.start,
+                            size: screenWidth * 0.045,
+                            weight: FontWeight.w700,
+                            color: ColorConstants.selctedColor,
                           ),
                         ),
                         SizedBox(width: screenWidth * 0.05),
                         GestureDetector(
                           onTap: () {},
-                          child: customText.kText(
+                          child: CustomText.qText(
                             'Delete',
-                            screenWidth * 0.045,
-                            FontWeight.w700,
-                            ColorConstants.deleteColor,
-                            TextAlign.start,
+                            size: screenWidth * 0.045,
+                            weight: FontWeight.w700,
+                            color: ColorConstants.deleteColor,
                           ),
                         ),
                       ],

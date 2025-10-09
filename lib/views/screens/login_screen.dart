@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinkpawscat/constants/color_constants.dart';
-import 'package:pinkpawscat/screens/nav_screen.dart';
-import 'package:pinkpawscat/screens/signup_screen.dart';
+import 'package:pinkpawscat/views/screens/nav_screen.dart';
+import 'package:pinkpawscat/views/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide:
-                      const BorderSide(color: Colors.pink, width: 2),
+                          const BorderSide(color: Colors.pink, width: 2),
                     ),
                   ),
                 ),
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide:
-                      const BorderSide(color: Colors.pink, width: 2),
+                          const BorderSide(color: Colors.pink, width: 2),
                     ),
                   ),
                 ),
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   child: GestureDetector(
                     onTap: () {
-                     Get.to(const NavScreen());
+                      Get.to(const NavScreen());
                     },
                     child: Image.asset(
                       'assets/images/loginbtn.png',

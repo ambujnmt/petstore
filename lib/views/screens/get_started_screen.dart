@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinkpawscat/screens/login_screen.dart';
+import 'package:pinkpawscat/views/screens/login_screen.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -21,17 +21,17 @@ class GetStartedScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: SizedBox(
-                width: double.infinity,
-                child: GestureDetector(
-                  onTap: (){
-                    Get.to(const LoginScreen());
-                  },
-                  child: Image.asset('assets/images/startedbtn.png',
-                  width: 300,
-                    height: 60,
-                  ),
-                )
-              ),
+                  width: double.infinity,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(const LoginScreen());
+                    },
+                    child: Image.asset(
+                      'assets/images/startedbtn.png',
+                      width: 300,
+                      height: 60,
+                    ),
+                  )),
             ),
           ),
         ],

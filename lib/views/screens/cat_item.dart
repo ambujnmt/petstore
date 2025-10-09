@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../utils/custom_text.dart';
+import 'package:pinkpawscat/utils/custom_text.dart';
 
-class CatCard extends StatelessWidget {
-  const CatCard({Key? key}) : super(key: key);
+class CartItemView extends StatefulWidget {
+  const CartItemView({super.key});
 
   @override
+  State<CartItemView> createState() => _CartItemViewState();
+}
+
+class _CartItemViewState extends State<CartItemView> {
+  @override
   Widget build(BuildContext context) {
-
-
-    final customText = CustomText();
-
-
     return Card(
       elevation: 4,
       color: Colors.white,
@@ -46,25 +46,24 @@ class CatCard extends StatelessWidget {
                   top: 10,
                   right: 10,
                   child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 6,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.favorite,
-                      color: Colors.black,
-                      size: 24,
-                    ),
-                  ),
+                      width: 35,
+                      height: 35,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Image.asset(
+                        'assets/images/fav.png',
+                        width: 10,
+                        height: 10,
+                      )),
                 ),
               ],
             ),
@@ -77,24 +76,28 @@ class CatCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customText.kText('Ornella', 17, FontWeight.w700, const Color(0xFF2C3E50), TextAlign.start),
+                    CustomText.qText(
+                      'Emir',
+                      size: 17,
+                      weight: FontWeight.w700,
+                      color: const Color(0xFF2C3E50),
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        customText.kPText(
-                          'Female',
-                          10,
-                          FontWeight.w500,
-                          const Color(0xFF4E1C74),
-                          TextAlign.center,
+                        Image.asset(
+                          'assets/images/location.png',
+                          width: 8,
+                          height: 10,
                         ),
-                        const SizedBox(width: 5),
-                        customText.kPText(
-                          '1.5 years',
-                          10,
-                          FontWeight.w500,
-                          const Color(0xFFEE017C),
-                          TextAlign.center,
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        CustomText.pText(
+                          '2.5 km',
+                          size: 10,
+                          color: const Color(0xFF4E1C74),
+                          align: TextAlign.center,
                         ),
                       ],
                     ),
@@ -108,21 +111,13 @@ class CatCard extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        customText.kPText(
-                          'Queen, British Longhair',
-                          12,
-                          FontWeight.w500,
-                          const Color(0xFF4B5563),
-                          TextAlign.center,
+                        CustomText.pText(
+                          'King, British Shorthair',
+                          size: 12,
+                          color: const Color(0xFF4B5563),
+                          align: TextAlign.center,
                         ),
                       ],
-                    ),
-                    customText.kPText(
-                      '\$1550.00',
-                      16,
-                      FontWeight.w500,
-                      const Color(0xFFEE017C),
-                      TextAlign.center,
                     ),
                   ],
                 ),
@@ -138,18 +133,34 @@ class CatCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    customText.kPText(
+                    CustomText.pText(
                       'Black Golden Shaded',
-                      12,
-                      FontWeight.w500,
-                      const Color(0xFF4B5563),
-                      TextAlign.center,
+                      size: 12,
+                      color: const Color(0xFF4B5563),
+                      align: TextAlign.center,
+                    ),
+                    const Spacer(),
+                    CustomText.pText(
+                      'Details',
+                      size: 16,
+                      color: const Color(0xFFEE017C),
+                      align: TextAlign.center,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    CustomText.pText(
+                      '\$1550.00',
+                      size: 16,
+                      color: const Color(0xFFEE017C),
+                      align: TextAlign.center,
                     ),
                     const Spacer(),
                     GestureDetector(
                       onTap: () {},
                       child: Image.asset(
-                        'assets/images/viewdetails_btn.png',
+                        'assets/images/addto.png',
                         width: 90,
                         height: 20,
                       ),

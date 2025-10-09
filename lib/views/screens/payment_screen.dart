@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../constants/color_constants.dart';
-import '../utils/custom_text.dart';
+import '../../constants/color_constants.dart';
+import '../../utils/custom_text.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -11,7 +11,6 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  final customText = CustomText();
   String? selectedMethod = "Paytm";
 
   @override
@@ -34,12 +33,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ),
           ),
         ),
-        title: customText.kText(
+        title: CustomText.qText(
           'Select a Payment Method',
-          20,
-          FontWeight.w700,
-          const Color(0xff4e1c74),
-          TextAlign.start,
+          size: 20,
+          weight: FontWeight.w700,
+          color: const Color(0xff4e1c74),
         ),
       ),
       body: Padding(
@@ -62,18 +60,23 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          customText.kPText("Home", 20, FontWeight.bold,
-                              Colors.black, TextAlign.start),
+                          CustomText.pText(
+                            "Home",
+                            size: 20,
+                            weight: FontWeight.bold,
+                          ),
                           SizedBox(height: height * 0.005),
-                          customText.kPText(
-                              '106, Lorem Ipsum is simply dummy text of the printing and type setting industry.',
-                              12,
-                              FontWeight.w400,
-                              Colors.black,
-                              TextAlign.start),
+                          CustomText.pText(
+                            '106, Lorem Ipsum is simply dummy text of the printing and type setting industry.',
+                            size: 12,
+                            weight: FontWeight.w400,
+                          ),
                           SizedBox(height: height * 0.005),
-                          customText.kPText("Phone No : 1234567890", 12,
-                              FontWeight.w400, Colors.black, TextAlign.start)
+                          CustomText.pText(
+                            "Phone No : 1234567890",
+                            size: 12,
+                            weight: FontWeight.w400,
+                          )
                         ],
                       ),
                     ),
@@ -86,15 +89,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
               alignment: Alignment.centerRight,
               child: TextButton(
                   onPressed: () {},
-                  child: customText.kPText("View All", 15, FontWeight.w400,
-                      Colors.black, TextAlign.start)),
+                  child: CustomText.pText(
+                    "View All",
+                    weight: FontWeight.w400,
+                  )),
             ),
             SizedBox(height: height * 0.015),
-            customText.kPText("Recommended", 20, FontWeight.w400, Colors.black,
-                TextAlign.start),
+            CustomText.pText(
+              "Recommended",
+              size: 20,
+              weight: FontWeight.w400,
+            ),
             SizedBox(height: height * 0.015),
-            buildPaymentOption("Paytm", "HDFC Bank **0011", "assets/images/hdfc.png", width),
-            buildPaymentOption("HDFC Bank Credit Card", "VISA **0011 | Sant Singh", "assets/images/hdfc.png", width),
+            buildPaymentOption(
+                "Paytm", "HDFC Bank **0011", "assets/images/hdfc.png", width),
+            buildPaymentOption("HDFC Bank Credit Card",
+                "VISA **0011 | Sant Singh", "assets/images/hdfc.png", width),
             buildPaymentOption("Klarna", "", "assets/images/hdfc.png", width),
             buildPaymentOption("Affirm", "", "assets/images/hdfc.png", width),
             const Spacer(),
@@ -116,7 +126,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
     );
   }
 
-  Widget buildPaymentOption(String title, String subtitle, String imagePath, double width) {
+  Widget buildPaymentOption(
+      String title, String subtitle, String imagePath, double width) {
     return Card(
       color: Colors.white,
       elevation: 3,
@@ -141,13 +152,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  customText.kPText(
-                      title, 14, FontWeight.w500, Colors.black, TextAlign.start),
+                  CustomText.pText(title, size: 14),
                   if (subtitle.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.only(top: 2.0),
-                      child: customText.kPText(
-                          subtitle, 12, FontWeight.w400, Colors.black54, TextAlign.start),
+                      child: CustomText.pText(
+                        subtitle,
+                        size: 12,
+                        weight: FontWeight.w400,
+                      ),
                     ),
                 ],
               ),

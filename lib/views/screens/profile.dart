@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinkpawscat/screens/Payment_methods_screen.dart';
-import 'package:pinkpawscat/screens/about_us_screen.dart';
-import 'package:pinkpawscat/screens/contact_us_screen.dart';
-import 'package:pinkpawscat/screens/edit_address_screen.dart';
-import 'package:pinkpawscat/screens/faq_screen.dart';
+import 'package:pinkpawscat/views/screens/Payment_methods_screen.dart';
+import 'package:pinkpawscat/views/screens/about_us_screen.dart';
+import 'package:pinkpawscat/views/screens/contact_us_screen.dart';
+import 'package:pinkpawscat/views/screens/edit_address_screen.dart';
+import 'package:pinkpawscat/views/screens/faq_screen.dart';
 import 'package:pinkpawscat/utils/custom_text.dart';
 import 'save_address_screen.dart';
 
@@ -16,8 +16,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final customText = CustomText();
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,13 +33,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CircleAvatar(
                 radius: width * 0.18,
                 backgroundImage: const NetworkImage(
-                  "https://images.unsplash.com/photo-1607746882042-944635dfe10e",),
+                  "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+                ),
               ),
               SizedBox(height: height * 0.02),
-              customText.kText("John Doe", width * 0.055, FontWeight.w700,
-                  const Color(0xff4e1c74), TextAlign.start),
-              customText.kText("johndoe@gmail.com", width * 0.04,
-                  FontWeight.w700, Colors.black, TextAlign.start),
+              CustomText.qText(
+                "John Doe",
+                size: width * 0.055,
+                weight: FontWeight.w700,
+                color: const Color(0xff4e1c74),
+              ),
+              CustomText.qText(
+                "johndoe@gmail.com",
+                size: width * 0.04,
+                weight: FontWeight.w700,
+              ),
               SizedBox(height: height * 0.015),
               GestureDetector(
                 onTap: () {
@@ -84,8 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       elevation: 3,
       child: ListTile(
         leading: Icon(icon, size: 26, color: Colors.black),
-        title: customText.kPText(
-            title, 14, FontWeight.w500, Colors.black, TextAlign.start),
+        title: CustomText.pText(title, size: 14),
         trailing: const Icon(Icons.arrow_forward_ios, size: 18),
         onTap: onTap,
       ),
