@@ -5,6 +5,7 @@ export 'package:flutter/material.dart';
 export 'package:get/get.dart';
 
 // App wide custom imports
+export 'package:pinkpawscat/shared_prefs/shared_preferences.dart';
 export 'package:pinkpawscat/views/widgets/custom_button.dart';
 export 'package:pinkpawscat/views/widgets/app_text_field.dart';
 export 'package:pinkpawscat/utils/color_constant.dart';

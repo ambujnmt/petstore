@@ -64,7 +64,7 @@ class CustomText {
     return TextStyle(
       fontFamily: CustomFonts.quicksand,
       fontSize: size,
-      fontWeight: weight,
+      fontWeight: weight ?? FontWeight.w600,
       color: color,
     );
   }
@@ -74,7 +74,7 @@ class CustomText {
     return TextStyle(
       fontFamily: CustomFonts.poppins,
       fontSize: size,
-      fontWeight: weight,
+      fontWeight: weight ?? FontWeight.w500,
       color: color,
     );
   }

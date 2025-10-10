@@ -1,13 +1,13 @@
-// import 'package:marriage/shared_prefs/shared_preferences.dart';
+import '../../utils/app_imports.dart';
 
-// class AuthPrefs {
-//   static final _introKey = 'intro_key';
+class AuthPrefs {
+  static const _onboardKey = 'onboard_key';
 
-//   static bool introDone() {
-//     return SharedPrefs.getBool(_introKey) ?? false;
-//   }
+  static bool onboardDone() {
+    return SharedPrefs.getBool(_onboardKey) ?? false;
+  }
 
-//   static Future<void> markIntroAs(bool val) async {
-//     await SharedPrefs.setBool(_introKey, val);
-//   }
-// }
+  static Future<void> setonBoard(bool val) async {
+    await SharedPrefs.setBool(_onboardKey, val);
+  }
+}

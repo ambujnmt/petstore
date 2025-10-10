@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pinkpawscat/shared_prefs/shared_preferences.dart';
 import 'package:pinkpawscat/views/screens/Payment_methods_screen.dart';
 import 'package:pinkpawscat/views/screens/about_us_screen.dart';
+import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 import 'package:pinkpawscat/views/screens/contact_us_screen.dart';
 import 'package:pinkpawscat/views/screens/edit_address_screen.dart';
 import 'package:pinkpawscat/views/screens/faq_screen.dart';
@@ -51,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: height * 0.015),
               GestureDetector(
                 onTap: () {
-                  Get.to(const EditAddressScreen());
+                  Get.to(() => const EditAddressScreen());
                 },
                 child: Image.asset(
                   'assets/images/editbtn.png',
@@ -61,19 +63,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               SizedBox(height: height * 0.04),
               buildMenuItem(Icons.location_on_outlined, "Save Address", () {
-                Get.to(const SaveAddressScreen());
+                Get.to(() => const SaveAddressScreen());
               }),
               buildMenuItem(Icons.credit_card, "Payment Methods", () {
-                Get.to(const PaymentMethodsScreen());
+                Get.to(() => const PaymentMethodsScreen());
               }),
               buildMenuItem(Icons.info_outline, "About Us", () {
-                Get.to(const AboutUsScreen());
+                Get.to(() => const AboutUsScreen());
               }),
               buildMenuItem(Icons.help_outline, "FAQs", () {
-                Get.to(const FaqScreen());
+                Get.to(() => const FaqScreen());
               }),
               buildMenuItem(Icons.support_agent, "Contact Us", () {
-                Get.to(const ContactUsScreen());
+                Get.to(() => const ContactUsScreen());
+              }),
+              buildMenuItem(Icons.support_agent, "Logout", () async {
+                await SharedPrefs.clear();
+                Get.deleteAll(force: true);
+                Get.offAll(() => LoginScreen());
               }),
             ],
           ),

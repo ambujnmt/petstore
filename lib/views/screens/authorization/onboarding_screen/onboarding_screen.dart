@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinkpawscat/views/screens/get_started_screen.dart';
+import 'package:pinkpawscat/utils/app_imports.dart';
+import 'package:pinkpawscat/utils/images.dart';
+import 'package:pinkpawscat/views/screens/authorization/get_started_screen/get_started_screen.dart';
 import '../../../../constants/color_constants.dart';
 import 'onboarding_screen_controller.dart';
 
@@ -58,22 +60,28 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    if (_con.currentIndex.value <
-                        _onboardingImages.length - 1) {
-                      _con.tabController.nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-                      Get.to(const GetStartedScreen());
-                    }
-                  },
-                  child: Image.asset(
-                    'assets/images/nextbtn.png',
-                    width: 200,
+                widthSpace100,
+                Expanded(
+                  child: AppButton(
                     height: 60,
+                    text: 'Next',
+                    textSize: 28,
+                    radius: 50,
+                    suffix: [
+                      widthSpace15,
+                      Image.asset(height: 18, width: 18, Images.arrowRightIcon)
+                    ],
+                    onTap: () {
+                      if (_con.currentIndex.value <
+                          _onboardingImages.length - 1) {
+                        _con.tabController.nextPage(
+                          duration: const Duration(milliseconds: 400),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        Get.to(() => const GetStartedScreen());
+                      }
+                    },
                   ),
                 )
               ],

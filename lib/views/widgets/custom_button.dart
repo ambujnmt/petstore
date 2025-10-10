@@ -6,34 +6,38 @@ class AppButton extends StatelessWidget {
   final Color? bgColor;
   final Color? textColor;
   final String? text;
-  final double fontSize;
+  final double textSize;
   final double? width;
   final double? height;
+  final double? radius;
   final bool intrinsicWidth;
   final bool intrinsicHeight;
   final bool transparent;
   final bool hideBorder;
-
+  final List<Widget>? suffix;
   const AppButton({
     super.key,
     this.text,
     this.onTap,
     this.loader = false,
-    this.fontSize = 25,
+    this.textSize = 25,
     this.width,
     this.intrinsicWidth = false,
     this.intrinsicHeight = false,
     this.transparent = false,
     this.hideBorder = false,
     this.height,
+    this.radius,
     this.bgColor,
     this.textColor,
+    this.suffix,
   });
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
           onTap: loader ? null : onTap,
@@ -42,6 +46,7 @@ class AppButton extends StatelessWidget {
             child: Container(
               height: intrinsicHeight ? null : height ?? 50,
               width: intrinsicWidth ? null : width ?? size.width,
+              alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
                 gradient: bgColor == null && !transparent
@@ -55,7 +60,8 @@ class AppButton extends StatelessWidget {
                       )
                     : null,
                 color: bgColor ?? white,
-                borderRadius: BorderRadius.circular(size.width * 0.03),
+                borderRadius:
+                    BorderRadius.circular(radius ?? size.width * 0.03),
                 border: hideBorder
                     ? null
                     : Border.all(
@@ -65,23 +71,27 @@ class AppButton extends StatelessWidget {
                         width: 1.7,
                       ),
               ),
-              child: Center(
-                child: loader
-                    ? const Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    // ? AppLoader.widget(
-                    //     size: height != null ? height! - 8 : 42,
-                    //     color1: ColorConstants.kTertiary,
-                    //   )
-                    : CustomText.qText(
-                        text ?? 'customButton',
-                        size: fontSize,
-                        weight: FontWeight.w700,
-                        color: textColor ?? (transparent ? black : white),
-                        align: TextAlign.center,
-                      ),
-              ),
+              child: loader
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  // ? AppLoader.widget(
+                  //     size: height != null ? height! - 8 : 42,
+                  //     color1: ColorConstants.kTertiary,
+                  //   )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomText.qText(
+                          text ?? 'customButton',
+                          size: textSize,
+                          weight: FontWeight.w700,
+                          color: textColor ?? (transparent ? black : white),
+                          align: TextAlign.center,
+                        ),
+                        if (suffix != null) ...[widthSpace10, ...suffix!]
+                      ],
+                    ),
             ),
           ),
         ),

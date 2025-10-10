@@ -318,7 +318,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Get.to(const PaymentScreen());
+                  Get.to(() => const PaymentScreen());
                 },
                 child: Image.asset(
                   'assets/images/make_paymentbtn.png',

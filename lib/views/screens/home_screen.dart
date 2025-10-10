@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Get.to(const MyCart());
+              Get.to(() => const MyCart());
             },
             icon: Image.asset(
               'assets/images/cart.png',
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           IconButton(
             onPressed: () {
-              Get.to(const NotificationView());
+              Get.to(() => const NotificationView());
             },
             icon: Image.asset(
               'assets/images/notification.png',
@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(const ItemDetailsPage());
+                      Get.to(() => const ItemDetailsPage());
                     },
                     child: const CatCard(),
                   ),

@@ -1,24 +1,13 @@
+import 'package:pinkpawscat/services/global_services.dart';
+
 import '../../../../utils/app_imports.dart';
-import 'package:pinkpawscat/views/screens/nav_screen.dart';
-import 'package:pinkpawscat/views/screens/signup_screen.dart';
+import 'package:pinkpawscat/views/screens/authorization/sign_up_screen/signup_screen.dart';
+import 'login_screen_conroller.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
+  final _con = Get.put(LoginScreenConroller());
 
   @override
   Widget build(BuildContext context) {
@@ -39,46 +28,49 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 60),
                 const Spacer(flex: 2),
                 AppTextField(
-                  controller: emailController,
+                  controller: _con.emailController,
                   hintText: 'Email Address',
+                  inputType: TextInputType.emailAddress,
                   prefixIcon: const Icon(Icons.email_outlined),
+                  errorText: _con.emailError,
                 ),
                 AppTextField(
-                  controller: passwordController,
+                  controller: _con.passwordController,
                   hintText: 'Password',
                   prefixIcon: const Icon(Icons.lock_outline),
+                  useObscure: true,
+                  errorText: _con.passwordError,
+                  bottomPadding: 0,
                 ),
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      "Forget Password?",
-                      style: TextStyle(color: ColorConstants.textColor),
-                    ),
+                    child: CustomText.qText("Forget Password?",
+                        color: ColorConstants.textColor,
+                        weight: FontWeight.bold),
                   ),
                 ),
                 heightSpace30,
                 AppButton(
                   text: 'LOGIN',
-                  onTap: () => Get.to(const NavScreen()),
+                  onTap: _con.onLoginTap,
                 ),
                 const SizedBox(height: 1),
                 const Spacer(flex: 2),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don’t have an account? "),
-                    GestureDetector(
+                    CustomText.qText("Don’t have an account? "),
+                    InkWell(
                       onTap: () {
-                        Get.to(const SignupScreen());
+                        closeKeyboard();
+                        Get.to(() => const SignupScreen());
                       },
-                      child: const Text(
+                      child: CustomText.qText(
                         "Signup",
-                        style: TextStyle(
-                          color: ColorConstants.textColor,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        color: ColorConstants.textColor,
+                        weight: FontWeight.bold,
                       ),
                     ),
                   ],

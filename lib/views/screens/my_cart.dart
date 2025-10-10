@@ -11,7 +11,7 @@ class MyCart extends StatelessWidget {
         backgroundColor: Colors.white,
         body: GestureDetector(
           onTap: () {
-            Get.to(const AddressBillingPage());
+            Get.to(() => const AddressBillingPage());
           },
           child: Center(
             child: InteractiveViewer(
