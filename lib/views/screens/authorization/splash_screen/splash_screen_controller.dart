@@ -4,7 +4,7 @@ import 'package:pinkpawscat/services/global_services.dart';
 import 'package:pinkpawscat/shared_prefs/storage/auth_prefs.dart';
 import 'package:pinkpawscat/shared_prefs/storage/user_storage.dart';
 import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
-import 'package:pinkpawscat/views/screens/nav_screen.dart';
+import 'package:pinkpawscat/zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 
 import '../onboarding_screen/onboarding_screen.dart';
 

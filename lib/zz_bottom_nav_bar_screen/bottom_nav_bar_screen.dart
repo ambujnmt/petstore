@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:advanced_salomon_bottom_bar/advanced_salomon_bottom_bar.dart';
+import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 import 'package:pinkpawscat/constants/color_constants.dart';
 import 'package:pinkpawscat/views/screens/home_screen.dart';
 import 'package:pinkpawscat/views/screens/like_screen.dart';
 import 'package:pinkpawscat/views/screens/menu_screen.dart';
 import 'package:pinkpawscat/views/screens/profile.dart';
+
+import 'bottom_nav_bar_screen_controller.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({super.key});
@@ -14,7 +18,7 @@ class NavScreen extends StatefulWidget {
 }
 
 class _NavScreenState extends State<NavScreen> {
-  var _currentIndex = 0;
+  final _con = Get.put(BottomNavBarScreenController());
 
   final List<Widget> _pages = const [
     HomeScreen(),
@@ -51,51 +55,44 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex],
+      body: Obx(() => _pages[_con.currentIndex.value]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               spreadRadius: 1,
               blurRadius: 8,
               offset: const Offset(0, -2),
             ),
           ],
         ),
-        child: AdvancedSalomonBottomBar(
-          backgroundColor: Colors.white,
-          currentIndex: _currentIndex,
-          onTap: (i) => setState(() => _currentIndex = i),
-          items: [
-            AdvancedSalomonBottomBarItem(
-              icon: _buildGradientIcon(
-                  "assets/images/home.png", _currentIndex == 0),
-              title: _buildGradientText("Home", _currentIndex == 0),
-              selectedColor: const Color(0xFFEE017C),
-            ),
-            AdvancedSalomonBottomBarItem(
-              icon: _buildGradientIcon(
-                  "assets/images/menu.png", _currentIndex == 1),
-              title: _buildGradientText("Menu", _currentIndex == 1),
-              selectedColor: Color(0xFFEE017C),
-            ),
-            AdvancedSalomonBottomBarItem(
-              icon: _buildGradientIcon(
-                  "assets/images/heart.png", _currentIndex == 2),
-              title: _buildGradientText("Like", _currentIndex == 2),
-              selectedColor: Color(0xFFEE017C),
-            ),
-            AdvancedSalomonBottomBarItem(
-              icon: _buildGradientIcon(
-                  "assets/images/profile.png", _currentIndex == 3),
-              title: _buildGradientText("Profile", _currentIndex == 3),
-              selectedColor: Color(0xFFEE017C),
-            ),
-          ],
+        child: Obx(
+          () => AdvancedSalomonBottomBar(
+            backgroundColor: Colors.white,
+            currentIndex: _con.currentIndex.value,
+            onTap: _con.setIndex,
+            items: List.generate(_tabs.length, (index) {
+              final item = _tabs[index];
+              return AdvancedSalomonBottomBarItem(
+                icon: _buildGradientIcon(
+                    item['icon']!, _con.currentIndex.value == 0),
+                title: _buildGradientText(
+                    item['title']!, _con.currentIndex.value == 0),
+                selectedColor: const Color(0xFFEE017C),
+              );
+            }),
+          ),
         ),
       ),
     );
   }
 }
+
+final _tabs = [
+  {'title': 'Home', 'icon': "assets/images/home.png"},
+  {'title': 'Menu', 'icon': "assets/images/menu.png"},
+  {'title': 'Liked', 'icon': "assets/images/heart.png"},
+  {'title': 'Profile', 'icon': "assets/images/profile.png"},
+];

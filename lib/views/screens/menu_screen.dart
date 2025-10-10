@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
 
   @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: Center(
-        child: InteractiveViewer( // zoom + scroll dono allow karega
+        child: InteractiveViewer(
+          // zoom + scroll dono allow karega
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -16,7 +26,8 @@ class MenuScreen extends StatelessWidget {
                   fit: BoxFit.contain,
                   width: MediaQuery.of(context).size.width,
                   // Loader dikhane ke liye
-                  frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  frameBuilder:
+                      (context, child, frame, wasSynchronouslyLoaded) {
                     if (wasSynchronouslyLoaded) {
                       return child;
                     }
@@ -25,13 +36,13 @@ class MenuScreen extends StatelessWidget {
                       child: frame != null
                           ? child
                           : const SizedBox(
-                        height: 300,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.pink,
-                          ),
-                        ),
-                      ),
+                              height: 300,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.pink,
+                                ),
+                              ),
+                            ),
                     );
                   },
                 ),

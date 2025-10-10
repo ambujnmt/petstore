@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
   final List<Map<String, String>> categories = [
     {"image": "assets/images/cat1.png", "name": "Munchkin"},
     {"image": "assets/images/cat2.png", "name": "Ragdoll"},
@@ -22,7 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

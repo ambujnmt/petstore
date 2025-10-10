@@ -1,7 +1,7 @@
 import 'package:pinkpawscat/shared_prefs/storage/auth_prefs.dart';
 import 'package:pinkpawscat/shared_prefs/storage/user_storage.dart';
 import '../../../../utils/app_imports.dart';
-import '../../nav_screen.dart';
+import '../../../../zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 
 class LoginScreenConroller extends GetxController {
   final emailController = TextEditingController();
