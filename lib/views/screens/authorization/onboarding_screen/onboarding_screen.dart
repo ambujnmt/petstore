@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pinkpawscat/utils/app_imports.dart';
 import 'package:pinkpawscat/utils/images.dart';
 import 'package:pinkpawscat/views/screens/authorization/get_started_screen/get_started_screen.dart';
-import '../../../../constants/color_constants.dart';
 import 'onboarding_screen_controller.dart';
 
 class OnboardingScreen extends StatelessWidget {

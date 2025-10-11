@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinkpawscat/shared_prefs/shared_preferences.dart';
-import 'package:pinkpawscat/views/screens/Payment_methods_screen.dart';
+import 'package:pinkpawscat/views/screens/payment_methods_screen.dart';
 import 'package:pinkpawscat/views/screens/about_us_screen.dart';
 import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 import 'package:pinkpawscat/views/screens/contact_us_screen.dart';

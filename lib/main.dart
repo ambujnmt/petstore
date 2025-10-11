@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       defaultTransition: Transition.rightToLeft,
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
