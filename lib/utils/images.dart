@@ -8,4 +8,5 @@ class Images {
 
 // Icons
   static const arrowRightIcon = 'assets/images/icons/arrow-right-icon.png';
+  static const pawIcon = 'assets/images/icons/paw-icon.png';
 }

@@ -1,9 +1,9 @@
 import 'package:advanced_salomon_bottom_bar/advanced_salomon_bottom_bar.dart';
-import 'package:pinkpawscat/views/screens/like_screen.dart';
-import 'package:pinkpawscat/views/screens/menu_screen.dart';
-import 'package:pinkpawscat/views/screens/profile.dart';
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen.dart';
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/menu_screen/menu_screen.dart';
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/profile_screen/profile.dart';
 import '../utils/app_imports.dart';
-import '../views/screens/home_screen.dart';
+import '../views/screens/bottom_nav_screens/home_screen/home_screen.dart';
 import 'bottom_nav_bar_screen_controller.dart';
 
 class NavScreen extends StatefulWidget {

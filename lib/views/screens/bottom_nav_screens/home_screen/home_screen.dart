@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinkpawscat/views/screens/card_view.dart';
 import 'package:pinkpawscat/views/screens/item_details_page.dart';
-import 'package:pinkpawscat/views/screens/my_cart.dart';
-import 'package:pinkpawscat/views/screens/notification_view.dart';
+import 'package:pinkpawscat/views/screens/my_cart_screen/my_cart.dart';
+import 'package:pinkpawscat/views/screens/notifications_screen/notification_view.dart';
 import 'package:pinkpawscat/utils/custom_text.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   bool get wantKeepAlive => true;
-
   @override
   Widget build(BuildContext context) {
     super.build(context);

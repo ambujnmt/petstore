@@ -5,10 +5,10 @@ import 'package:pinkpawscat/views/screens/payment_methods_screen.dart';
 import 'package:pinkpawscat/views/screens/about_us_screen.dart';
 import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 import 'package:pinkpawscat/views/screens/contact_us_screen.dart';
-import 'package:pinkpawscat/views/screens/edit_address_screen.dart';
+import 'package:pinkpawscat/views/screens/edit_address_screen/edit_address_screen.dart';
 import 'package:pinkpawscat/views/screens/faq_screen.dart';
 import 'package:pinkpawscat/utils/custom_text.dart';
-import 'save_address_screen.dart';
+import '../../save_address_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

@@ -14,13 +14,14 @@ class CustomText {
   }
 
   static Text qText(
-    String hint, {
-    double? size,
-    FontWeight? weight,
-    Color? color,
-    TextAlign? align,
-    TextOverflow? textOverFlow,
-    int? lines,
+    final String hint, {
+    final double? size,
+    final FontWeight? weight,
+    final Color? color,
+    final TextAlign? align,
+    final TextOverflow? textOverFlow,
+    final int? lines,
+    final bool itailic = false,
   }) {
     return Text(
       hint,
@@ -29,6 +30,7 @@ class CustomText {
         fontSize: size ?? 16,
         fontWeight: weight ?? FontWeight.w600,
         color: color ?? black,
+        fontStyle: itailic ? FontStyle.italic : null,
       ),
       textAlign: align ?? TextAlign.start,
       overflow: textOverFlow ?? TextOverflow.ellipsis,
@@ -37,13 +39,14 @@ class CustomText {
   }
 
   static Text pText(
-    String hint, {
-    double? size,
-    FontWeight? weight,
-    Color? color,
-    TextAlign? align,
-    TextOverflow? textOverFlow,
-    int? lines,
+    final String hint, {
+    final double? size,
+    final FontWeight? weight,
+    final Color? color,
+    final TextAlign? align,
+    final TextOverflow? textOverFlow,
+    final int? lines,
+    final bool itailic = false,
   }) {
     return Text(
       hint,
@@ -52,6 +55,7 @@ class CustomText {
         fontSize: size ?? 15,
         fontWeight: weight ?? FontWeight.w500,
         color: color,
+        fontStyle: itailic ? FontStyle.italic : null,
       ),
       textAlign: align ?? TextAlign.start,
       overflow: textOverFlow ?? TextOverflow.ellipsis,
