@@ -1,6 +1,4 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:pinkpawscat/utils/app_dimentions.dart';
-
 import '../utils/app_imports.dart';
 
 class AppLoader {

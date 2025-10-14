@@ -1,5 +1,3 @@
-import 'package:pinkpawscat/services/global_services.dart';
-
 import '../../utils/app_imports.dart';
 
 class CustomContainer {
@@ -12,26 +10,34 @@ class CustomContainer {
     final double? height,
     final double? width,
     final bool hideShadow = false,
+    final BoxShape? shape,
   }) {
     return Container(
       height: height,
       width: width,
-      padding: padding ?? const EdgeInsets.all(10),
       margin: margin,
       decoration: BoxDecoration(
         color: color ?? white,
-        borderRadius: BorderRadius.circular(radius ?? 10),
+        borderRadius:
+            shape == null ? BorderRadius.circular(radius ?? 10) : null,
+        shape: shape ?? BoxShape.rectangle,
         boxShadow: hideShadow
             ? null
             : [
                 BoxShadow(
-                  blurRadius: 4,
-                  color: black.withValues(alpha: .3),
-                  offset: const Offset(0, 1),
+                  blurRadius: 3,
+                  color: black.withValues(alpha: .25),
+                  offset: const Offset(0, 1.7),
                 )
               ],
       ),
-      child: child,
+      child: ClipRRect(
+          borderRadius:
+              BorderRadius.circular(shape != null ? 100 : radius ?? 10),
+          child: Padding(
+            padding: padding ?? const EdgeInsets.all(10),
+            child: child,
+          )),
     );
   }
 
@@ -44,26 +50,32 @@ class CustomContainer {
     final double? height,
     final double? width,
     final bool hideShadow = false,
+    final BoxShape? shape,
   }) {
     return Container(
       height: height,
       width: width,
-      padding: padding ?? const EdgeInsets.all(10),
       margin: margin,
       decoration: BoxDecoration(
         color: color ?? fromHex('f8f9fb'),
-        borderRadius: BorderRadius.circular(radius ?? 10),
+        borderRadius:
+            shape == null ? BorderRadius.circular(radius ?? 10) : null,
+        shape: shape ?? BoxShape.rectangle,
         boxShadow: hideShadow
             ? null
             : [
                 BoxShadow(
-                  blurRadius: 4,
-                  color: black.withValues(alpha: .3),
-                  offset: const Offset(0, 1),
+                  blurRadius: 3,
+                  color: black.withValues(alpha: .25),
+                  offset: const Offset(0, 1.7),
                 )
               ],
       ),
-      child: child,
+      child: ClipRRect(
+          borderRadius:
+              BorderRadius.circular(shape != null ? 100 : radius ?? 10),
+          child: Padding(
+              padding: padding ?? const EdgeInsets.all(10), child: child)),
     );
   }
 }

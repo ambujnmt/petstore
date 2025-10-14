@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
+import '../../utils/app_imports.dart';
 
 class CartItemView extends StatefulWidget {
   const CartItemView({super.key});
@@ -157,13 +156,9 @@ class _CartItemViewState extends State<CartItemView> {
                       align: TextAlign.center,
                     ),
                     const Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        'assets/images/addto.png',
-                        width: 90,
-                        height: 20,
-                      ),
+                    AppButton(
+                      onTap: () => AppToast.show('Coming soon!'),
+                      text: 'Add To Cart',
                     ),
                   ],
                 ),

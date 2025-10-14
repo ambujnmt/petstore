@@ -6,10 +6,11 @@ class AppButton extends StatelessWidget {
   final Color? bgColor;
   final Color? textColor;
   final String? text;
-  final double textSize;
+  final double? textSize;
   final double? width;
-  final double? height;
+  final double height;
   final double? radius;
+  final double bgColorOpacity;
   final bool intrinsicWidth;
   final bool intrinsicHeight;
   final bool transparent;
@@ -20,14 +21,15 @@ class AppButton extends StatelessWidget {
     this.text,
     this.onTap,
     this.loader = false,
-    this.textSize = 25,
+    this.textSize,
     this.width,
     this.intrinsicWidth = false,
     this.intrinsicHeight = false,
     this.transparent = false,
     this.hideBorder = false,
-    this.height,
+    this.height = 50,
     this.radius,
+    this.bgColorOpacity = 1.0,
     this.bgColor,
     this.textColor,
     this.suffix,
@@ -44,16 +46,18 @@ class AppButton extends StatelessWidget {
           behavior: HitTestBehavior.opaque,
           child: IntrinsicWidth(
             child: Container(
-              height: intrinsicHeight ? null : height ?? 50,
+              height: intrinsicHeight ? null : height,
               width: intrinsicWidth ? null : width ?? size.width,
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
                 gradient: bgColor == null && !transparent
-                    ? const LinearGradient(
+                    ? LinearGradient(
                         colors: [
-                          ColorConstants.selctedColor,
+                          ColorConstants.selctedColor
+                              .withValues(alpha: bgColorOpacity),
                           ColorConstants.deleteColor
+                              .withValues(alpha: bgColorOpacity)
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -84,7 +88,7 @@ class AppButton extends StatelessWidget {
                       children: [
                         CustomText.qText(
                           text ?? 'customButton',
-                          size: textSize,
+                          size: textSize ?? height * .5,
                           weight: FontWeight.w700,
                           color: textColor ?? (transparent ? black : white),
                           align: TextAlign.center,

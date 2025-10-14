@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../utils/app_imports.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({super.key});
@@ -10,6 +10,8 @@ class FaqScreen extends StatefulWidget {
 class _FaqScreenState extends State<FaqScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AppScaffold(
+      appBar: customAppBar(title: 'FAQs'),
+    );
   }
 }

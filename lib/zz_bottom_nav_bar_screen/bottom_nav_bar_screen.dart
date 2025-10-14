@@ -87,8 +87,8 @@ class _NavScreenState extends State<NavScreen> {
 }
 
 final _tabs = [
-  {'title': 'Home', 'icon': "assets/images/home.png"},
-  {'title': 'Menu', 'icon': "assets/images/menu.png"},
-  {'title': 'Liked', 'icon': "assets/images/heart.png"},
-  {'title': 'Profile', 'icon': "assets/images/profile.png"},
+  {'title': 'Home', 'icon': Images.homeIcon},
+  {'title': 'Menu', 'icon': Images.menuIcon},
+  {'title': 'Liked', 'icon': Images.heartIcon},
+  {'title': 'Profile', 'icon': Images.profileIcon},
 ];

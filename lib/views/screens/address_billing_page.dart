@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pinkpawscat/views/screens/payment_screen.dart';
-import '../../utils/custom_text.dart';
+import '../../utils/app_imports.dart';
 
 class AddressBillingPage extends StatefulWidget {
   const AddressBillingPage({super.key});
@@ -54,7 +52,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Image.asset(
-              'assets/images/backbutton.png',
+              Images.backButton,
               width: 25,
               height: 25,
             ),

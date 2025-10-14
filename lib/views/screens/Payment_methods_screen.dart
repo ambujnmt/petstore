@@ -10,6 +10,8 @@ class PaymentMethodsScreen extends StatefulWidget {
 class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AppScaffold(
+      appBar: customAppBar(title: 'Peyment Methods'),
+    );
   }
 }

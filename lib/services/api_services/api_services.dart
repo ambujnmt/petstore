@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:pinkpawscat/helpers/app_toast.dart';
 import '../../utils/app_imports.dart';
 import 'api_headers.dart.dart';
 

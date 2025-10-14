@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinkpawscat/views/screens/card_view.dart';
-import 'package:pinkpawscat/views/screens/item_details_page.dart';
-import 'package:pinkpawscat/views/screens/my_cart_screen/my_cart.dart';
-import 'package:pinkpawscat/views/screens/notifications_screen/notification_view.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
+import '../../../../utils/app_imports.dart';
+import 'widgets/card_view.dart';
+import '../../item_details_page.dart';
+import '../../my_cart_screen/my_cart.dart';
+import '../../notifications_screen/notification_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -66,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen>
               Get.to(() => const MyCart());
             },
             icon: Image.asset(
-              'assets/images/cart.png',
+              Images.cartIcon,
               width: 24,
               height: 24,
             ),
@@ -76,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen>
               Get.to(() => const NotificationView());
             },
             icon: Image.asset(
-              'assets/images/notification.png',
+              Images.notificationIcon,
               width: 24,
               height: 24,
             ),

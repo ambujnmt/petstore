@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Pinkpawscat',
       theme: ThemeData(
+        scaffoldBackgroundColor: white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

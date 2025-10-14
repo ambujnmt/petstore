@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../utils/app_imports.dart';
 
 class ContactUsScreen extends StatefulWidget {
   const ContactUsScreen({super.key});
@@ -10,6 +10,8 @@ class ContactUsScreen extends StatefulWidget {
 class _ContactUsScreenState extends State<ContactUsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AppScaffold(
+      appBar: customAppBar(title: 'Contact Us'),
+    );
   }
 }

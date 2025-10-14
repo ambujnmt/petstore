@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../constants/color_constants.dart';
-import '../../utils/custom_text.dart';
+import 'package:pinkpawscat/utils/app_imports.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -27,7 +24,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Image.asset(
-              'assets/images/backbutton.png',
+              Images.backButton,
               width: 25,
               height: 25,
             ),

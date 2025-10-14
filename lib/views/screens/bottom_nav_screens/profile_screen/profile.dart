@@ -1,13 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinkpawscat/shared_prefs/shared_preferences.dart';
+import '../../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/payment_methods_screen.dart';
 import 'package:pinkpawscat/views/screens/about_us_screen.dart';
 import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 import 'package:pinkpawscat/views/screens/contact_us_screen.dart';
 import 'package:pinkpawscat/views/screens/edit_address_screen/edit_address_screen.dart';
 import 'package:pinkpawscat/views/screens/faq_screen.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
 import '../../save_address_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -55,33 +52,35 @@ class _ProfileScreenState extends State<ProfileScreen>
                 weight: FontWeight.w700,
               ),
               SizedBox(height: height * 0.015),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => const EditAddressScreen());
-                },
-                child: Image.asset(
-                  'assets/images/editbtn.png',
-                  width: 152,
-                  height: 34,
-                ),
+              AppButton(
+                text: 'Edit Profile',
+                intrinsicWidth: true,
+                bgColorOpacity: .73,
+                height: 34,
+                suffix: [Image.asset(Images.editIcon, height: 16, width: 16)],
+                onTap: () => Get.to(() => const EditAddressScreen()),
               ),
               SizedBox(height: height * 0.04),
-              buildMenuItem(Icons.location_on_outlined, "Save Address", () {
+              _buildMenuItem(Icons.location_on_outlined, "Save Address", () {
                 Get.to(() => const SaveAddressScreen());
               }),
-              buildMenuItem(Icons.credit_card, "Payment Methods", () {
+              _buildMenuItem(Icons.credit_card, "Payment Methods", () {
                 Get.to(() => const PaymentMethodsScreen());
               }),
-              buildMenuItem(Icons.info_outline, "About Us", () {
+              _buildMenuItem(Icons.info_outline, "About Us", () {
                 Get.to(() => const AboutUsScreen());
               }),
-              buildMenuItem(Icons.help_outline, "FAQs", () {
+              _buildMenuItem(Icons.help_outline, "FAQs", () {
                 Get.to(() => const FaqScreen());
               }),
-              buildMenuItem(Icons.support_agent, "Contact Us", () {
+              _buildMenuItem(Icons.support_agent, "Contact Us", () {
                 Get.to(() => const ContactUsScreen());
               }),
-              buildMenuItem(Icons.support_agent, "Logout", () async {
+              _buildMenuItem(Icons.power_settings_new, "Logout", () async {
+                if (!await AppDialog.confirm(
+                    title: 'Logout!', message: 'Are you sure, logout?')) {
+                  return;
+                }
                 await SharedPrefs.clear();
                 Get.deleteAll(force: true);
                 Get.offAll(() => LoginScreen());
@@ -93,12 +92,11 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 
-  Widget buildMenuItem(IconData icon, String title, VoidCallback onTap) {
-    return Card(
+  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap) {
+    return CustomContainer.lightContainer(
       color: Colors.white,
       margin: const EdgeInsets.symmetric(vertical: 8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 3,
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: ListTile(
         leading: Icon(icon, size: 26, color: Colors.black),
         title: CustomText.pText(title, size: 14),

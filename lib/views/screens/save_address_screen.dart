@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinkpawscat/constants/color_constants.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
+import '../../utils/app_imports.dart';
 
 class SaveAddressScreen extends StatefulWidget {
   const SaveAddressScreen({super.key});
@@ -25,7 +22,7 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
           child: GestureDetector(
             onTap: () => Get.back(),
             child: Image.asset(
-              'assets/images/backbutton.png',
+              Images.backButton,
               width: screenWidth * 0.06,
               height: screenWidth * 0.06,
             ),
@@ -97,14 +94,9 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
               ),
             ),
             SizedBox(height: screenHeight * 0.02),
-            GestureDetector(
-              onTap: () {},
-              child: Image.asset(
-                'assets/images/addnew.png',
-                width: screenWidth * 0.9,
-                height: screenHeight * 0.07,
-                fit: BoxFit.contain,
-              ),
+            AppButton(
+              onTap: () => AppToast.show('Coming soon!'),
+              text: 'Add New Address',
             ),
           ],
         ),

@@ -1,5 +1,3 @@
-import 'package:pinkpawscat/services/global_services.dart';
-
 import '../../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/authorization/sign_up_screen/signup_screen.dart';
 import 'login_screen_conroller.dart';

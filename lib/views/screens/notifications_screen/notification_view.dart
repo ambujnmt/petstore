@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pinkpawscat/constants/sized_boxes.dart';
-import 'package:pinkpawscat/helpers/app_toast.dart';
-import 'package:pinkpawscat/services/global_services.dart';
-import 'package:pinkpawscat/utils/app_dimentions.dart';
-import 'package:pinkpawscat/utils/app_imports.dart';
-import 'package:pinkpawscat/utils/color_constant.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
-import 'package:pinkpawscat/utils/images.dart';
-import 'package:pinkpawscat/views/widgets/custom_button.dart';
-import 'package:pinkpawscat/views/widgets/custom_container.dart';
+import '../../../utils/app_imports.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
@@ -17,13 +7,7 @@ class NotificationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: CustomText.qText('Notifications',
-            size: 20,
-            weight: FontWeight.w700,
-            color: ColorConstants.deleteColor),
-        backgroundColor: white,
-      ),
+      appBar: customAppBar(title: 'Notifications'),
       body: SafeArea(
         child: ListView(
           padding: AppDimentions.defaultScreenPadding,
@@ -65,8 +49,8 @@ class NotificationView extends StatelessWidget {
                       AppButton(
                         intrinsicWidth: true,
                         height: 30,
-                        textSize: 16,
-                        text: 'View Profile',
+                        // textSize: 16,
+                        text: 'View Profile', bgColorOpacity: .75,
                         onTap: () => AppToast.show('Coming soon'),
                       ),
                       Align(

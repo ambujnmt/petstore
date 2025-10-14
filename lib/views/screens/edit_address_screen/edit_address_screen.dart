@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pinkpawscat/constants/color_constants.dart';
-import 'package:pinkpawscat/utils/custom_text.dart';
+import '../../../utils/app_imports.dart';
 
 class EditAddressScreen extends StatefulWidget {
   const EditAddressScreen({super.key});
@@ -35,7 +32,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                 GestureDetector(
                   onTap: () => Get.back(),
                   child: Image.asset(
-                    'assets/images/backbutton.png',
+                    Images.backButton,
                     width: screenWidth * 0.09,
                     height: screenWidth * 0.09,
                   ),

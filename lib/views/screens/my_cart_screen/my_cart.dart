@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/address_billing_page.dart';
 
 class MyCart extends StatelessWidget {
@@ -19,7 +18,7 @@ class MyCart extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset(
-                      "assets/images/my_cart.png",
+                      Images.cartIcon,
                       fit: BoxFit.fill,
                       width: MediaQuery.of(context).size.width,
                       frameBuilder:

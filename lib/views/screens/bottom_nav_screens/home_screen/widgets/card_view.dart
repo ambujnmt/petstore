@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import '../../utils/custom_text.dart';
+import '../../../../../utils/app_imports.dart';
 
 class CatCard extends StatelessWidget {
   const CatCard({super.key});

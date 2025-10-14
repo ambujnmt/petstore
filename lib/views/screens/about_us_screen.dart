@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../utils/app_imports.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});
@@ -10,6 +10,8 @@ class AboutUsScreen extends StatefulWidget {
 class _AboutUsScreenState extends State<AboutUsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AppScaffold(
+      appBar: customAppBar(title: 'About Us'),
+    );
   }
 }
