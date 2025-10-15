@@ -31,13 +31,20 @@ class CustomContainer {
                 )
               ],
       ),
-      child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(shape != null ? 100 : radius ?? 10),
-          child: Padding(
-            padding: padding ?? const EdgeInsets.all(10),
-            child: child,
-          )),
+      child: shape == BoxShape.circle
+          ? ClipOval(
+              child: Padding(
+                padding: padding ?? const EdgeInsets.all(10),
+                child: child,
+              ),
+            )
+          : ClipRRect(
+              borderRadius: BorderRadius.circular(radius ?? 10),
+              child: Padding(
+                padding: padding ?? const EdgeInsets.all(10),
+                child: child,
+              ),
+            ),
     );
   }
 
@@ -71,11 +78,20 @@ class CustomContainer {
                 )
               ],
       ),
-      child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(shape != null ? 100 : radius ?? 10),
-          child: Padding(
-              padding: padding ?? const EdgeInsets.all(10), child: child)),
+      child: shape == BoxShape.circle
+          ? ClipOval(
+              child: Padding(
+                padding: padding ?? const EdgeInsets.all(10),
+                child: child,
+              ),
+            )
+          : ClipRRect(
+              borderRadius: BorderRadius.circular(radius ?? 10),
+              child: Padding(
+                padding: padding ?? const EdgeInsets.all(10),
+                child: child,
+              ),
+            ),
     );
   }
 }

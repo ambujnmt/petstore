@@ -22,4 +22,9 @@ class Images {
   static const passwordIcon = 'assets/images/icons/password.png';
   static const editIcon = 'assets/images/icons/edit.png';
   static const locationPinIcon = 'assets/images/icons/location-pin.png';
+  static const locationPinIcon1 = 'assets/images/icons/location-pin1.png';
+  static const supportIcon = 'assets/images/icons/support.png';
+  static const faqsIcon = 'assets/images/icons/faqs.png';
+  static const cardIcon = 'assets/images/icons/card.png';
+  static const infoIcon = 'assets/images/icons/info-icon.png';
 }

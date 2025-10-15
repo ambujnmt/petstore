@@ -1,4 +1,3 @@
-import 'package:advanced_salomon_bottom_bar/advanced_salomon_bottom_bar.dart';
 import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen.dart';
 import 'package:pinkpawscat/views/screens/bottom_nav_screens/menu_screen/menu_screen.dart';
 import 'package:pinkpawscat/views/screens/bottom_nav_screens/profile_screen/profile.dart';
@@ -25,34 +24,12 @@ class _NavScreenState extends State<NavScreen> {
 
   final gradient = ColorConstants.selectedGradient;
 
-  Widget _buildGradientIcon(String asset, bool selected) {
-    if (!selected) {
-      return Image.asset(asset, width: 22, height: 22, color: Colors.black);
-    }
-    return ShaderMask(
-      shaderCallback: (bounds) => gradient.createShader(bounds),
-      child: Image.asset(asset, width: 22, height: 22, color: Colors.white),
-    );
-  }
-
-  Text _buildGradientText(String text, bool selected) {
-    if (!selected) {
-      return Text(text, style: const TextStyle(color: Colors.black));
-    }
-    return Text(
-      text,
-      style: TextStyle(
-        foreground: Paint()
-          ..shader = gradient.createShader(const Rect.fromLTWH(0, 0, 100, 20)),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() => _pages[_con.currentIndex.value]),
       bottomNavigationBar: Container(
+        height: 60,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -65,21 +42,55 @@ class _NavScreenState extends State<NavScreen> {
           ],
         ),
         child: Obx(
-          () => AdvancedSalomonBottomBar(
-            backgroundColor: Colors.white,
-            currentIndex: _con.currentIndex.value,
-            onTap: _con.setIndex,
-            items: List.generate(_tabs.length, (index) {
-              final item = _tabs[index];
-              return AdvancedSalomonBottomBarItem(
-                icon: _buildGradientIcon(
-                    item['icon']!, _con.currentIndex.value == 0),
-                title: _buildGradientText(
-                    item['title']!, _con.currentIndex.value == 0),
-                selectedColor: const Color(0xFFEE017C),
-              );
-            }),
-          ),
+          () => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(_tabs.length, (index) {
+                final item = _tabs[index];
+                final isActive = _con.currentIndex.value == index;
+                return InkWell(
+                  onTap: () => _con.setIndex(index),
+                  child: AnimatedContainer(
+                    width: isActive ? 90 : 40,
+                    height: 36,
+                    duration: const Duration(milliseconds: 300),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      gradient: isActive
+                          ? LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                  ColorConstants.selctedColor
+                                      .withValues(alpha: .76),
+                                  ColorConstants.deleteColor
+                                      .withValues(alpha: .76),
+                                ])
+                          : null,
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Image.asset(
+                            height: 20,
+                            width: 20,
+                            item['icon']!,
+                            color: isActive ? white : black,
+                          ),
+                        ),
+                        if (isActive)
+                          Flexible(
+                            child: CustomText.pText(item['title']!,
+                                textOverFlow: TextOverflow.fade,
+                                lines: 1,
+                                size: 13,
+                                color: white),
+                          )
+                      ],
+                    ),
+                  ),
+                );
+              })),
         ),
       ),
     );

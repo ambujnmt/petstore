@@ -33,10 +33,14 @@ class _ProfileScreenState extends State<ProfileScreen>
               horizontal: width * 0.06, vertical: height * 0.04),
           child: Column(
             children: [
-              CircleAvatar(
-                radius: width * 0.18,
-                backgroundImage: const NetworkImage(
-                  "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+              CustomContainer.lightContainer(
+                shape: BoxShape.circle,
+                padding: EdgeInsets.zero,
+                child: CircleAvatar(
+                  radius: width * 0.18,
+                  backgroundImage: const NetworkImage(
+                    "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+                  ),
                 ),
               ),
               SizedBox(height: height * 0.02),
@@ -61,22 +65,24 @@ class _ProfileScreenState extends State<ProfileScreen>
                 onTap: () => Get.to(() => const EditAddressScreen()),
               ),
               SizedBox(height: height * 0.04),
-              _buildMenuItem(Icons.location_on_outlined, "Save Address", () {
+              _buildMenuItem(imgIcon: Images.locationPinIcon1, "Save Address",
+                  () {
                 Get.to(() => const SaveAddressScreen());
               }),
-              _buildMenuItem(Icons.credit_card, "Payment Methods", () {
+              _buildMenuItem(imgIcon: Images.cardIcon, "Payment Methods", () {
                 Get.to(() => const PaymentMethodsScreen());
               }),
-              _buildMenuItem(Icons.info_outline, "About Us", () {
+              _buildMenuItem(imgIcon: Images.infoIcon, "About Us", () {
                 Get.to(() => const AboutUsScreen());
               }),
-              _buildMenuItem(Icons.help_outline, "FAQs", () {
+              _buildMenuItem(imgIcon: Images.faqsIcon, "FAQs", () {
                 Get.to(() => const FaqScreen());
               }),
-              _buildMenuItem(Icons.support_agent, "Contact Us", () {
+              _buildMenuItem(imgIcon: Images.supportIcon, "Contact Us", () {
                 Get.to(() => const ContactUsScreen());
               }),
-              _buildMenuItem(Icons.power_settings_new, "Logout", () async {
+              _buildMenuItem(icon: Icons.power_settings_new, "Logout",
+                  () async {
                 if (!await AppDialog.confirm(
                     title: 'Logout!', message: 'Are you sure, logout?')) {
                   return;
@@ -92,14 +98,17 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap) {
+  Widget _buildMenuItem(String title, VoidCallback onTap,
+      {String? imgIcon, IconData? icon}) {
     return CustomContainer.lightContainer(
       color: Colors.white,
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: ListTile(
-        leading: Icon(icon, size: 26, color: Colors.black),
-        title: CustomText.pText(title, size: 14),
+        leading: imgIcon != null
+            ? Image.asset(height: 25, width: 25, imgIcon, color: black)
+            : Icon(icon, size: 26, color: Colors.black),
+        title: CustomText.pText(title, size: 16),
         trailing: const Icon(Icons.arrow_forward_ios, size: 18),
         onTap: onTap,
       ),
