@@ -1,6 +1,6 @@
 import '../../../../utils/app_imports.dart';
 import 'widgets/card_view.dart';
-import '../../item_details_page.dart';
+import '../../item_details_screen/item_details_screen.dart';
 import '../../my_cart_screen/my_cart.dart';
 import '../../notifications_screen/notification_view.dart';
 
@@ -252,9 +252,7 @@ class _HomeScreenState extends State<HomeScreen>
                     height: 10,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Get.to(() => const ItemDetailsPage());
-                    },
+                    onTap: () => Get.to(() => ItemDetailsPage()),
                     child: const CatCard(),
                   ),
                   const SizedBox(

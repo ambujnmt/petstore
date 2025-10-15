@@ -3,6 +3,10 @@ import 'views/screens/authorization/splash_screen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   await SharedPrefs.init();
   runApp(const MyApp());
 }

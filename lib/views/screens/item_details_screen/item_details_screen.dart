@@ -1,13 +1,17 @@
-import 'package:flutter/material.dart';
+import '../../../utils/app_imports.dart';
+import 'item_details_screen_controller.dart';
 
 class ItemDetailsPage extends StatelessWidget {
-  const ItemDetailsPage({super.key});
+  ItemDetailsPage({super.key});
+
+  final _con = Get.put(ItemDetailsScreenController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: InteractiveViewer( // zoom + scroll dono allow karega
+        child: InteractiveViewer(
+          // zoom + scroll dono allow karega
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -16,7 +20,8 @@ class ItemDetailsPage extends StatelessWidget {
                   fit: BoxFit.contain,
                   width: MediaQuery.of(context).size.width,
                   // Loader dikhane ke liye
-                  frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  frameBuilder:
+                      (context, child, frame, wasSynchronouslyLoaded) {
                     if (wasSynchronouslyLoaded) {
                       return child;
                     }
@@ -25,13 +30,13 @@ class ItemDetailsPage extends StatelessWidget {
                       child: frame != null
                           ? child
                           : const SizedBox(
-                        height: 300,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.pink,
-                          ),
-                        ),
-                      ),
+                              height: 300,
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.pink,
+                                ),
+                              ),
+                            ),
                     );
                   },
                 ),

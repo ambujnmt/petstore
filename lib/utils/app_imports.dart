@@ -1,4 +1,5 @@
 // Core packages
+export 'package:flutter/services.dart';
 export 'package:flutter/material.dart';
 
 // Third party packages
