@@ -27,4 +27,11 @@ class Images {
   static const faqsIcon = 'assets/images/icons/faqs.png';
   static const cardIcon = 'assets/images/icons/card.png';
   static const infoIcon = 'assets/images/icons/info-icon.png';
+  static const flashIcon = 'assets/images/icons/flash.png';
+  static const greenBallIcon = 'assets/images/icons/green-ball.png';
+  static const blackHeartIcon = 'assets/images/icons/black-heart.png';
+  static const friendlyIcon = 'assets/images/icons/friendly.png';
+  static const genderIcon = 'assets/images/icons/gender.png';
+  static const tagicon = 'assets/images/icons/tag.png';
+  static const calendarIcon = 'assets/images/icons/calendar.png';
 }

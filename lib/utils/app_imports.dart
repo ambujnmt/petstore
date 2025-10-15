@@ -6,6 +6,9 @@ export 'package:flutter/material.dart';
 export 'package:get/get.dart';
 
 // App wide custom imports
+export 'package:pinkpawscat/views/widgets/custom_checkbox.dart';
+export 'package:pinkpawscat/views/widgets/custom_icon_button.dart';
+export 'package:pinkpawscat/views/widgets/custom_dots_indicator.dart';
 export 'package:pinkpawscat/helpers/app_dialog.dart';
 export 'package:pinkpawscat/views/widgets/app_scaffold.dart';
 export 'package:pinkpawscat/views/widgets/custom_app_bar.dart';

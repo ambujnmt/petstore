@@ -7,6 +7,7 @@ class AppButton extends StatelessWidget {
   final Color? textColor;
   final String? text;
   final double? textSize;
+  final EdgeInsetsGeometry? padding;
   final double? width;
   final double height;
   final double? radius;
@@ -23,6 +24,7 @@ class AppButton extends StatelessWidget {
     this.loader = false,
     this.textSize,
     this.width,
+    this.padding,
     this.intrinsicWidth = false,
     this.intrinsicHeight = false,
     this.transparent = false,
@@ -49,7 +51,7 @@ class AppButton extends StatelessWidget {
               height: intrinsicHeight ? null : height,
               width: intrinsicWidth ? null : width ?? size.width,
               alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(horizontal: 6),
+              padding: padding ?? const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
                 gradient: bgColor == null && !transparent
                     ? LinearGradient(
@@ -85,13 +87,17 @@ class AppButton extends StatelessWidget {
                   //   )
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CustomText.qText(
-                          text ?? 'customButton',
-                          size: textSize ?? height * .5,
-                          weight: FontWeight.w700,
-                          color: textColor ?? (transparent ? black : white),
-                          align: TextAlign.center,
+                        Flexible(
+                          child: CustomText.qText(
+                            text ?? 'customButton',
+                            lines: 1,
+                            size: textSize ?? height * .5,
+                            weight: FontWeight.w700,
+                            color: textColor ?? (transparent ? black : white),
+                            align: TextAlign.center,
+                          ),
                         ),
                         if (suffix != null) ...[widthSpace10, ...suffix!]
                       ],

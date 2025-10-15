@@ -11,6 +11,7 @@ class CustomContainer {
     final double? width,
     final bool hideShadow = false,
     final BoxShape? shape,
+    final Border? border,
   }) {
     return Container(
       height: height,
@@ -21,6 +22,7 @@ class CustomContainer {
         borderRadius:
             shape == null ? BorderRadius.circular(radius ?? 10) : null,
         shape: shape ?? BoxShape.rectangle,
+        border: border,
         boxShadow: hideShadow
             ? null
             : [
