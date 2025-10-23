@@ -17,13 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Pinkpawscat',
+      debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.rightToLeft,
       theme: ThemeData(
         scaffoldBackgroundColor: white,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      defaultTransition: Transition.rightToLeft,
-      debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );
   }

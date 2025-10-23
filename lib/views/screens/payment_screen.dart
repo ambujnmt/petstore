@@ -15,29 +15,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final height = size.height;
-    return Scaffold(
+    return AppScaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(
-              Images.backButton,
-              width: 25,
-              height: 25,
-            ),
-          ),
-        ),
-        title: CustomText.qText(
-          'Select a Payment Method',
-          size: 20,
-          weight: FontWeight.w700,
-          color: const Color(0xff4e1c74),
-        ),
-      ),
-      body: Padding(
+      appBar: customAppBar(title: 'Select a Payment Method'),
+      body: (_) => Padding(
         padding: EdgeInsets.all(width * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,24 +80,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ),
             SizedBox(height: height * 0.015),
             buildPaymentOption(
-                "Paytm", "HDFC Bank **0011", "assets/images/hdfc.png", width),
+                "Paytm", "HDFC Bank **0011", Images.hdfcIcon, width),
             buildPaymentOption("HDFC Bank Credit Card",
-                "VISA **0011 | Sant Singh", "assets/images/hdfc.png", width),
-            buildPaymentOption("Klarna", "", "assets/images/hdfc.png", width),
-            buildPaymentOption("Affirm", "", "assets/images/hdfc.png", width),
+                "VISA **0011 | Sant Singh", Images.hdfcIcon, width),
+            buildPaymentOption("Klarna", "", Images.hdfcIcon, width),
+            buildPaymentOption("Affirm", "", Images.hdfcIcon, width),
             const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              height: height * 0.07,
-              child: Ink(
-                child: Center(
-                    child: Image.asset(
-                  'assets/images/payno.png',
-                  width: 360,
-                  height: 50,
-                )),
-              ),
-            ),
+            AppButton(
+              text: 'Pay Now',
+              onTap: () => AppToast.show('Coming soon.'),
+            )
           ],
         ),
       ),

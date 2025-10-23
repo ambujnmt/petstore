@@ -6,46 +6,17 @@ class MyCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: GestureDetector(
-          onTap: () {
-            Get.to(() => const AddressBillingPage());
-          },
-          child: Center(
-            child: InteractiveViewer(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      Images.cartIcon,
-                      fit: BoxFit.fill,
-                      width: MediaQuery.of(context).size.width,
-                      frameBuilder:
-                          (context, child, frame, wasSynchronouslyLoaded) {
-                        if (wasSynchronouslyLoaded) {
-                          return child;
-                        }
-                        return AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          child: frame != null
-                              ? child
-                              : const SizedBox(
-                                  height: 300,
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.pink,
-                                    ),
-                                  ),
-                                ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ));
+    return AppScaffold(
+      appBar: customAppBar(title: 'My Cart'),
+      bottomNavigationBar: IntrinsicHeight(
+          child: Padding(
+        padding:
+            AppDimentions.defaultScreenPadding.copyWith(bottom: 15, top: 10),
+        child: AppButton(
+          text: 'Proceed to chekout',
+          onTap: () => Get.to(() => const AddressBillingPage()),
+        ),
+      )),
+    );
   }
 }

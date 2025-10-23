@@ -60,9 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Get.to(() => const MyCart());
-            },
+            onPressed: () => Get.to(() => const MyCart()),
             icon: Image.asset(
               Images.cartIcon,
               width: 24,
@@ -70,9 +68,7 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
           IconButton(
-            onPressed: () {
-              Get.to(() => const NotificationView());
-            },
+            onPressed: () => Get.to(() => const NotificationView()),
             icon: Image.asset(
               Images.notificationIcon,
               width: 24,
@@ -248,16 +244,12 @@ class _HomeScreenState extends State<HomeScreen>
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   GestureDetector(
                     onTap: () => Get.to(() => ItemDetailsPage()),
                     child: const CatCard(),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   CustomText.qText(
                     'Pets Near You',
                     size: 20,
@@ -282,9 +274,7 @@ class _HomeScreenState extends State<HomeScreen>
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   // const CartItemView()
                   Center(
                     child: InteractiveViewer(

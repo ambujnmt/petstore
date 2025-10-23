@@ -45,27 +45,9 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(
-              Images.backButton,
-              width: 25,
-              height: 25,
-            ),
-          ),
-        ),
-        title: CustomText.qText(
-          'Your order',
-          size: 20,
-          weight: FontWeight.w700,
-          color: const Color(0xff4e1c74),
-        ),
-      ),
-      body: SingleChildScrollView(
+    return AppScaffold(
+      appBar: customAppBar(title: 'Your order'),
+      body: (_) => SingleChildScrollView(
         padding: EdgeInsets.symmetric(
           horizontal: width * 0.05,
           vertical: height * 0.02,
@@ -73,17 +55,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 5.0,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(6)),
+            CustomContainer.darkContainer(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
@@ -158,17 +130,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
               ),
             ),
             SizedBox(height: height * 0.03),
-            Container(
-              padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 5.0,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(6)),
+            CustomContainer.darkContainer(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
@@ -232,17 +194,7 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
             SizedBox(
               height: height * 0.03,
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 40.0),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      blurRadius: 5.0,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(6)),
+            CustomContainer.darkContainer(
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
@@ -300,32 +252,32 @@ class _AddressBillingPageState extends State<AddressBillingPage> {
                 ),
               ),
             ),
-            CustomText.qText(
-              "Order notes (optional)",
-              size: 18,
-              weight: FontWeight.w700,
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: noteController,
-              maxLines: 3,
-              decoration: _inputDecoration(
-                  "Note about your order, e.g. special notes for delivery."),
+            heightSpace20,
+            CustomContainer.darkContainer(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText.qText(
+                    "Order notes (optional)",
+                    size: 18,
+                    weight: FontWeight.w700,
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: noteController,
+                    maxLines: 3,
+                    decoration: _inputDecoration(
+                        "Note about your order, e.g. special notes for delivery."),
+                  ),
+                ],
+              ),
             ),
             SizedBox(height: height * 0.03),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Get.to(() => const PaymentScreen());
-                },
-                child: Image.asset(
-                  'assets/images/make_paymentbtn.png',
-                  height: 50,
-                  width: width * 0.9,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            )
+            AppButton(
+              text: 'Select Payment',
+              onTap: () => Get.to(() => const PaymentScreen()),
+            ),
+            heightSpace60
           ],
         ),
       ),

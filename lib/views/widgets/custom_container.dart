@@ -74,8 +74,8 @@ class CustomContainer {
             ? null
             : [
                 BoxShadow(
-                  blurRadius: 3,
-                  color: black.withValues(alpha: .25),
+                  blurRadius: 4,
+                  color: black.withValues(alpha: .27),
                   offset: const Offset(0, 1.7),
                 )
               ],
