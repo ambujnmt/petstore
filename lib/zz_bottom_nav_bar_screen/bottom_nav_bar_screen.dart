@@ -27,7 +27,8 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => _pages[_con.currentIndex.value]),
+      body: Obx(
+          () => IndexedStack(index: _con.currentIndex.value, children: _pages)),
       bottomNavigationBar: Container(
         height: 60,
         decoration: BoxDecoration(

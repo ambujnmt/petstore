@@ -1,4 +1,4 @@
-import '../../utils/app_imports.dart';
+import '../../../utils/app_imports.dart';
 
 class SaveAddressScreen extends StatefulWidget {
   const SaveAddressScreen({super.key});
@@ -15,26 +15,7 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: () => Get.back(),
-            child: Image.asset(
-              Images.backButton,
-              width: screenWidth * 0.06,
-              height: screenWidth * 0.06,
-            ),
-          ),
-        ),
-        title: CustomText.qText(
-          'Save Address',
-          size: screenWidth * 0.05,
-          weight: FontWeight.w700,
-          color: const Color(0xff4e1c74),
-        ),
-      ),
+      appBar: customAppBar(title: 'Saved Address'),
       body: Padding(
         padding: EdgeInsets.all(screenWidth * 0.04),
         child: Column(

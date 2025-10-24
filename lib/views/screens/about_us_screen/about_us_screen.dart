@@ -1,4 +1,4 @@
-import '../../utils/app_imports.dart';
+import '../../../utils/app_imports.dart';
 
 class AboutUsScreen extends StatefulWidget {
   const AboutUsScreen({super.key});

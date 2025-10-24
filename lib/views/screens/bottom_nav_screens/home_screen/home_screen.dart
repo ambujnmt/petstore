@@ -1,7 +1,7 @@
 import '../../../../utils/app_imports.dart';
 import 'widgets/card_view.dart';
 import '../../item_details_screen/item_details_screen.dart';
-import '../../my_cart_screen/my_cart.dart';
+import '../../my_cart_screen/my_cart_screen.dart';
 import '../../notifications_screen/notification_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         actions: [
           IconButton(
-            onPressed: () => Get.to(() => const MyCart()),
+            onPressed: () => Get.to(() => MyCartScreen()),
             icon: Image.asset(
               Images.cartIcon,
               width: 24,

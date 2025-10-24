@@ -1,4 +1,4 @@
-import 'package:pinkpawscat/views/screens/payment_screen.dart';
+import 'package:pinkpawscat/views/screens/payment_screen/payment_screen.dart';
 import '../../utils/app_imports.dart';
 
 class AddressBillingPage extends StatefulWidget {

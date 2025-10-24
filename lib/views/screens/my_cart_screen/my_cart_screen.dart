@@ -1,8 +1,12 @@
 import '../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/address_billing_page.dart';
 
-class MyCart extends StatelessWidget {
-  const MyCart({super.key});
+import 'my_cart_screen_controller.dart';
+
+class MyCartScreen extends StatelessWidget {
+  MyCartScreen({super.key});
+
+  final _con = Get.put(MyCartScreenController());
 
   @override
   Widget build(BuildContext context) {

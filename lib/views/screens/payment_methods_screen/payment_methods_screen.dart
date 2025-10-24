@@ -1,4 +1,4 @@
-import '../../utils/app_imports.dart';
+import '../../../utils/app_imports.dart';
 
 class PaymentMethodsScreen extends StatefulWidget {
   const PaymentMethodsScreen({super.key});
