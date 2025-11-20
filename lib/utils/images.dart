@@ -9,7 +9,7 @@ class Images {
 
 // Other images
   static const loginBg = 'assets/images/login_bg.png';
-
+  static const dashCat = 'assets/images/dash_cat.png';
 // Icons
   static const arrowRightIcon = 'assets/images/icons/arrow-right-icon.png';
   static const pawIcon = 'assets/images/icons/paw-icon.png';

@@ -22,8 +22,8 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
             children: [
               Image.asset(
-                height: 180,
-                width: 180,
+                height: 170,
+                width: 170,
                 repeat: ImageRepeat.noRepeat,
                 fit: BoxFit.cover,
                 color: white,

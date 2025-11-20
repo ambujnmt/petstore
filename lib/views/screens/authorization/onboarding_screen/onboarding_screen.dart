@@ -1,5 +1,5 @@
 import 'package:pinkpawscat/utils/app_imports.dart';
-import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
+import 'package:pinkpawscat/zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 import 'package:video_player/video_player.dart';
 // import 'onboarding_screen_controller.dart';
 
@@ -86,7 +86,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: AppButton(
                     radius: 100,
                     text: 'View Available Kittens',
-                    onTap: () => Get.off(() => LoginScreen()),
+                    onTap: () => Get.off(() => const BottomNavScreen()),
                   ),
                 ),
                 const Spacer(flex: 2),
