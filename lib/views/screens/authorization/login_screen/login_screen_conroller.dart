@@ -1,5 +1,3 @@
-import 'package:pinkpawscat/shared_prefs/storage/auth_prefs.dart';
-import 'package:pinkpawscat/shared_prefs/storage/user_storage.dart';
 import '../../../../utils/app_imports.dart';
 import '../../../../zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 
@@ -12,8 +10,8 @@ class LoginScreenConroller extends GetxController {
 
   Future<void> onLoginTap() async {
     if (!_validator()) return;
-    await UserStorage.setToken('dfdkjfd');
-    Get.to(() => const NavScreen());
+    // await UserStorage.setToken('dfdkjfd');
+    Get.to(() => const BottomNavScreen());
   }
 
   bool _validator() {
@@ -27,9 +25,9 @@ class LoginScreenConroller extends GetxController {
     return true;
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    AuthPrefs.setonBoard(true);
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   AuthPrefs.setonBoard(true);
+  // }
 }

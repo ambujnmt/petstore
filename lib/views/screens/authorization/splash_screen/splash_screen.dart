@@ -1,23 +1,43 @@
+import 'package:pinkpawscat/helpers/app_loader.dart';
 import '../../../../utils/app_imports.dart';
 import 'splash_screen_controller.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
   Widget build(BuildContext context) {
-    Get.put(SplashScreenController());
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
+    final con = Get.put(SplashScreenController());
     return Scaffold(
-      backgroundColor: ColorConstants.splashColor,
+      backgroundColor: ColorConstants.selctedColor,
       body: Center(
-        child: Container(
-          height: height * .2,
-          width: width * .4,
-          decoration: const BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage('assets/images/logo.png'))),
+        child: SizedBox(
+          height: Get.height,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset(
+                height: 180,
+                width: 180,
+                repeat: ImageRepeat.noRepeat,
+                fit: BoxFit.cover,
+                color: white,
+                Images.splash,
+              ),
+              Positioned(
+                  bottom: 40,
+                  left: 0,
+                  right: 0,
+                  child: Obx(() => con.showLoader.value
+                      ? AppLoader.widget(color1: white, color2: white)
+                      : const SizedBox()))
+            ],
+          ),
         ),
       ),
     );

@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
         children: [
           SizedBox.expand(
             child: Image.asset(
-              "assets/images/login.png",
+              Images.loginBg,
               fit: BoxFit.cover,
             ),
           ),

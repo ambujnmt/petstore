@@ -2,9 +2,13 @@ class Images {
   static const appLogo = 'assets/images/logo.png';
 
 // Onboarding
-  static const introImg1 = '';
-  static const introImg2 = '';
-  static const introImg3 = '';
+  static const splash = 'assets/videos/splash.gif';
+  static const introImg1 = 'assets/images/onboarding1.png';
+  static const introImg2 = 'assets/images/onboarding2.png';
+  static const introImg3 = 'assets/images/onboarding3.png';
+
+// Other images
+  static const loginBg = 'assets/images/login_bg.png';
 
 // Icons
   static const arrowRightIcon = 'assets/images/icons/arrow-right-icon.png';

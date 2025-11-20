@@ -5,14 +5,14 @@ import '../utils/app_imports.dart';
 import '../views/screens/bottom_nav_screens/home_screen/home_screen.dart';
 import 'bottom_nav_bar_screen_controller.dart';
 
-class NavScreen extends StatefulWidget {
-  const NavScreen({super.key});
+class BottomNavScreen extends StatefulWidget {
+  const BottomNavScreen({super.key});
 
   @override
-  State<NavScreen> createState() => _NavScreenState();
+  State<BottomNavScreen> createState() => _BottomNavScreenState();
 }
 
-class _NavScreenState extends State<NavScreen> {
+class _BottomNavScreenState extends State<BottomNavScreen> {
   final _con = Get.put(BottomNavBarScreenController());
 
   final List<Widget> _pages = const [
@@ -23,7 +23,6 @@ class _NavScreenState extends State<NavScreen> {
   ];
 
   final gradient = ColorConstants.selectedGradient;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
