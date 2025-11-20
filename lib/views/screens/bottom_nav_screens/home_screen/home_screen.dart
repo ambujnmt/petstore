@@ -1,10 +1,7 @@
 import 'package:pinkpawscat/views/widgets/app_sliver_appbar.dart';
-
 import '../../../../utils/app_imports.dart';
 import 'widgets/card_view.dart';
 import '../../item_details_screen/item_details_screen.dart';
-import '../../my_cart_screen/my_cart_screen.dart';
-import '../../notifications_screen/notification_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
