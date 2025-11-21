@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Pinkpawscat',
+      title: 'Pink Paws',
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.rightToLeft,
       theme: ThemeData(
