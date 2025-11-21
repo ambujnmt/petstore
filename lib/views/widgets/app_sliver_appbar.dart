@@ -17,7 +17,7 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
 
   double _scrollOffset = 0.0;
   final ScrollController _scrollController = ScrollController();
-  var isScrolled = false;
+  final isScrolled = false.obs;
 
   final _minimumOffset = 165;
 
@@ -26,14 +26,10 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
     super.initState();
     _scrollController.addListener(() {
       _scrollOffset = _scrollController.offset;
-      if (_scrollOffset > _minimumOffset && !isScrolled) {
-        setState(() {
-          isScrolled = true;
-        });
-      } else if (_scrollOffset < _minimumOffset && isScrolled) {
-        setState(() {
-          isScrolled = false;
-        });
+      if (_scrollOffset > _minimumOffset && !isScrolled.value) {
+        isScrolled(true);
+      } else if (_scrollOffset < _minimumOffset && isScrolled.value) {
+        isScrolled(false);
       }
     });
   }
@@ -54,16 +50,18 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
           surfaceTintColor: transparent,
           elevation: 0,
           backgroundColor: transparent,
-          flexibleSpace: AnimatedContainer(
-            duration: const Duration(milliseconds: 160),
-            decoration: BoxDecoration(
-              gradient: isScrolled
-                  ? const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFFEE017C), Color(0xFF4E1C74)],
-                    )
-                  : null,
+          flexibleSpace: Obx(
+            () => AnimatedContainer(
+              duration: const Duration(milliseconds: 160),
+              decoration: BoxDecoration(
+                gradient: isScrolled.value
+                    ? const LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Color(0xFFEE017C), Color(0xFF4E1C74)],
+                      )
+                    : null,
+              ),
             ),
           ),
           title: Column(
