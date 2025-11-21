@@ -17,7 +17,6 @@ class SplashScreenController extends GetxController {
     if (UserStorage.getToken() == null) {
       return InitialScreen.onboard;
     }
-
     return InitialScreen.dashboard;
   }
 
