@@ -32,23 +32,24 @@ flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/app_launcher.png"
-  background_color: "#f2e8f1"
-  adaptive_icon_background: "#f2e8f1"
-  adaptive_icon_foreground: "assets/images/app_launcher.png"
+  image_path: "assets/app_launcher.png"
+  background_color: "#ee017c"
+  adaptive_icon_background: "#ee017c"
+  adaptive_icon_foreground: "assets/app_launcher.png"
 
 flutter_native_splash:
   color: "#ee017c"
-  image: assets/images/splash_icon.png
+  image: assets/splash_icon.png
   android: true
   ios: true
   android_12:
     color: "#ee017c"
-    image: assets/images/splash_icon.png
+    image: assets/splash_icon.png
 
 flutter:
   uses-material-design: true
   assets:
+    - assets/
     - assets/images/
     - assets/videos/
     - assets/images/icons/

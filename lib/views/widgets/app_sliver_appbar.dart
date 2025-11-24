@@ -120,14 +120,14 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
                     ),
                   ),
                   Positioned(
-                    bottom: -40,
+                    bottom: -24,
                     left: 0,
                     right: 0,
                     child: Row(
                       children: [
                         const Spacer(flex: 7),
                         Image.asset(
-                          height: 220,
+                          height: 200,
                           Images.dashCat,
                         ),
                         const Spacer(flex: 3),
@@ -136,7 +136,7 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
                   )
                 ],
               ),
-              heightSpace45,
+              heightSpace30,
               widget.body ?? const SizedBox()
             ],
           ),

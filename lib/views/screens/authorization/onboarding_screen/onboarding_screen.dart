@@ -65,7 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Spacer(flex: 4),
+                const Spacer(flex: 2),
                 CustomText.qText(
                   'Welcome To\nPink Paws',
                   size: 42,
@@ -73,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   align: TextAlign.center,
                   color: fromHex('ee017c'),
                 ),
-                heightSpace20,
+                const Spacer(flex: 5),
                 CustomText.pText(
                   'Connecting You With Your Perfect Kitten',
                   size: 28,
@@ -89,7 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onTap: () => Get.off(() => const BottomNavScreen()),
                   ),
                 ),
-                const Spacer(flex: 2),
+                const Spacer(flex: 8),
               ],
             ),
           )
