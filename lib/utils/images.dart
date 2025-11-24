@@ -10,6 +10,9 @@ class Images {
 // Other images
   static const loginBg = 'assets/images/login_bg.png';
   static const dashCat = 'assets/images/dash_cat.png';
+  static const aboutUs = 'assets/images/about_us_img.png';
+  static const aboutUs2 = 'assets/images/about_us_img2.png';
+  static const faqImg = 'assets/images/faq_img.png';
 // Icons
   static const arrowRightIcon = 'assets/images/icons/arrow-right-icon.png';
   static const pawIcon = 'assets/images/icons/paw-icon.png';
@@ -38,4 +41,6 @@ class Images {
   static const genderIcon = 'assets/images/icons/gender.png';
   static const tagicon = 'assets/images/icons/tag.png';
   static const calendarIcon = 'assets/images/icons/calendar.png';
+  static const deliveredIcon = 'assets/images/icons/delivered_icon.png';
+  static const catEmoji = 'assets/images/icons/cat_emoji.png';
 }

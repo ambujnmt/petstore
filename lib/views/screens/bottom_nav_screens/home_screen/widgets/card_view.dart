@@ -23,7 +23,7 @@ class CatCard extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/images/featured_img.png',
-                  height: 150,
+                  height: 192,
                   width: double.infinity,
                   fit: BoxFit.fill,
                 ),

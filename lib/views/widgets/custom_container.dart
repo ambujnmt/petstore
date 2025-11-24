@@ -7,18 +7,21 @@ class CustomContainer {
     final EdgeInsetsGeometry? padding,
     final Widget? child,
     final double? radius,
+    final double? paddingValue,
     final double? height,
     final double? width,
     final bool hideShadow = false,
+    final bool isGradient = false,
     final BoxShape? shape,
     final Border? border,
+    final double? bgColorOpacity,
   }) {
     return Container(
       height: height,
       width: width,
       margin: margin,
       decoration: BoxDecoration(
-        color: color ?? white,
+        color: isGradient ? null : color ?? white,
         borderRadius:
             shape == null ? BorderRadius.circular(radius ?? 10) : null,
         shape: shape ?? BoxShape.rectangle,
@@ -32,18 +35,28 @@ class CustomContainer {
                   offset: const Offset(0, 1.7),
                 )
               ],
+        gradient: isGradient
+            ? LinearGradient(
+                colors: [
+                  ColorConstants.selctedColor.withValues(alpha: bgColorOpacity),
+                  ColorConstants.deleteColor.withValues(alpha: bgColorOpacity)
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )
+            : null,
       ),
       child: shape == BoxShape.circle
           ? ClipOval(
               child: Padding(
-                padding: padding ?? const EdgeInsets.all(10),
+                padding: padding ?? EdgeInsets.all(paddingValue ?? 10),
                 child: child,
               ),
             )
           : ClipRRect(
               borderRadius: BorderRadius.circular(radius ?? 10),
               child: Padding(
-                padding: padding ?? const EdgeInsets.all(10),
+                padding: padding ?? EdgeInsets.all(paddingValue ?? 10),
                 child: child,
               ),
             ),

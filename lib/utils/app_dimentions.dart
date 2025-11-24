@@ -11,4 +11,7 @@ class AppDimentions {
   static const screenPaddingXXS = 4.0;
 
   static const defaultBoxRadius = 12.0;
+  static const boxRadiusS = 8.0;
+  static const boxRadiusXS = 4.0;
+  static const boxRadiusXXS = 2.0;
 }

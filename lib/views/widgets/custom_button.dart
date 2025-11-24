@@ -16,6 +16,7 @@ class AppButton extends StatelessWidget {
   final bool intrinsicHeight;
   final bool transparent;
   final bool hideBorder;
+  final bool hideShadow;
   final List<Widget>? suffix;
   const AppButton({
     super.key,
@@ -29,6 +30,7 @@ class AppButton extends StatelessWidget {
     this.intrinsicHeight = false,
     this.transparent = false,
     this.hideBorder = false,
+    this.hideShadow = true,
     this.height = 50,
     this.radius,
     this.bgColorOpacity = 1.0,
@@ -53,6 +55,15 @@ class AppButton extends StatelessWidget {
               alignment: Alignment.center,
               padding: padding ?? const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
+                boxShadow: hideShadow
+                    ? null
+                    : [
+                        BoxShadow(
+                          blurRadius: 3,
+                          color: black.withValues(alpha: .25),
+                          offset: const Offset(0, 1.7),
+                        )
+                      ],
                 gradient: bgColor == null && !transparent
                     ? LinearGradient(
                         colors: [
@@ -93,7 +104,7 @@ class AppButton extends StatelessWidget {
                           child: CustomText.qText(
                             text ?? 'customButton',
                             lines: 1,
-                            size: textSize ?? height * .5,
+                            size: textSize ?? 17,
                             weight: FontWeight.w700,
                             color: textColor ?? (transparent ? black : white),
                             align: TextAlign.center,

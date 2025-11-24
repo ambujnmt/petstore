@@ -5,6 +5,7 @@ import 'package:pinkpawscat/views/screens/authorization/login_screen/login_scree
 import 'package:pinkpawscat/views/screens/contact_us_screen/contact_us_screen.dart';
 import 'package:pinkpawscat/views/screens/edit_address_screen/edit_address_screen.dart';
 import 'package:pinkpawscat/views/screens/faq_screen/faq_screen.dart';
+import '../../order_history_screen/order_history_screen.dart';
 import '../../saved_address_screen/saved_address_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -65,6 +66,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                 onTap: () => Get.to(() => const EditAddressScreen()),
               ),
               SizedBox(height: height * 0.04),
+              _buildMenuItem(
+                  imgIcon: Images.cartIcon,
+                  'Order History',
+                  () => Get.to(() => const OrderHistoryScreen())),
               _buildMenuItem(imgIcon: Images.locationPinIcon1, "Save Address",
                   () {
                 Get.to(() => const SaveAddressScreen());
