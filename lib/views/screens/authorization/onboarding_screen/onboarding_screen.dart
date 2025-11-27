@@ -80,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   align: TextAlign.center,
                   color: white,
                 ),
-                heightSpace10,
+                const Spacer(flex: 5),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: AppButton(
@@ -89,7 +89,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onTap: () => Get.off(() => const BottomNavScreen()),
                   ),
                 ),
-                const Spacer(flex: 8),
+                heightSpace5
               ],
             ),
           )
