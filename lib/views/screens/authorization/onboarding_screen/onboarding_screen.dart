@@ -75,7 +75,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 const Spacer(flex: 5),
                 CustomText.pText(
-                  'Connecting You With Your Perfect Kitten',
+                  'Connecting You With Your Purrfect Kitten',
                   size: 28,
                   align: TextAlign.center,
                   color: white,
@@ -85,7 +85,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   padding: const EdgeInsets.all(20.0),
                   child: AppButton(
                     radius: 100,
-                    text: 'View Available Kittens',
+                    // text: 'View Available Kittens',
+                    text: 'Get Started',
                     onTap: () => Get.off(() => const BottomNavScreen()),
                   ),
                 ),
