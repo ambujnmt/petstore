@@ -1,0 +1,17 @@
+import '../../../utils/app_imports.dart';
+
+class PaymentMethodsScreen extends StatefulWidget {
+  const PaymentMethodsScreen({super.key});
+
+  @override
+  State<PaymentMethodsScreen> createState() => _PaymentMethodsScreenState();
+}
+
+class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return AppScaffold(
+      appBar: customAppBar(title: 'Peyment Methods'),
+    );
+  }
+}

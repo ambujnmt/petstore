@@ -1,6 +1,6 @@
 name: pinkpawscat
 description: "A new PinkPawsCat project."
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -9,47 +9,81 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-
   cupertino_icons: ^1.0.8
   get: ^4.7.0
-  advanced_salomon_bottom_bar: ^3.3.4
+  # advanced_salomon_bottom_bar: ^3.3.4
+  shared_preferences: ^2.5.3
+  http: ^1.5.0
+  flutter_spinkit: ^5.2.2
+  fluttertoast: ^9.0.0
+  carousel_slider: ^5.1.1
+  video_player: ^2.10.1
+  gif_view: ^1.0.3
+  gif: ^2.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
 
 flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/app_launcher.png"
+  background_color: "#ee017c"
+  adaptive_icon_background: "#ee017c"
+  adaptive_icon_foreground: "assets/app_launcher.png"
+
+flutter_native_splash:
+  color: "#ee017c"
+  image: assets/splash_icon.png
+  android: true
+  ios: true
+  android_12:
+    color: "#ee017c"
+    image: assets/splash_icon.png
 
 flutter:
-
-
   uses-material-design: true
-
   assets:
+    - assets/
     - assets/images/
+    - assets/videos/
+    - assets/images/icons/
 
   fonts:
-    - family: QuickSandBold
+    - family: Poppins
       fonts:
-        - asset: assets/fonts/Quicksand-Bold.ttf
-    - family: QuickSandLight
+        - asset: assets/fonts/poppins/Poppins-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/poppins/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/poppins/Poppins-Black.ttf
+          weight: 900
+    - family: Quicksand
       fonts:
-        - asset: assets/fonts/Quicksand-Light.ttf
-    - family: QuickSandMedium
-      fonts:
-        - asset: assets/fonts/Quicksand-Medium.ttf
-    - family: QuickSandRegular
-      fonts:
-        - asset: assets/fonts/Quicksand-Regular.ttf
-    - family: PoppinsMedium
-      fonts:
-        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Light.ttf
+          weight: 300
+        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/quicksand/Quicksand-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/quicksand/Quicksand-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+          weight: 700
