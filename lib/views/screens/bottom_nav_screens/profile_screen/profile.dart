@@ -25,79 +25,82 @@ class _ProfileScreenState extends State<ProfileScreen>
     final size = MediaQuery.of(context).size;
     final width = size.width;
     final height = size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-              horizontal: width * 0.06, vertical: height * 0.04),
-          child: Column(
-            children: [
-              CustomContainer.lightContainer(
-                shape: BoxShape.circle,
-                padding: EdgeInsets.zero,
-                child: CircleAvatar(
-                  radius: width * 0.18,
-                  backgroundImage: const NetworkImage(
-                    "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
-                  ),
+      appBar: customAppBar(
+          hideLeadign: true,
+          title: '',
+          bgColor: transparent,
+          sftColor: transparent),
+      extendBodyBehindAppBar: true,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(
+            horizontal: width * 0.06, vertical: height * 0.04),
+        child: Column(
+          children: [
+            heightSpace30,
+            CustomContainer.lightContainer(
+              shape: BoxShape.circle,
+              padding: EdgeInsets.zero,
+              child: CircleAvatar(
+                radius: width * 0.18,
+                backgroundImage: const NetworkImage(
+                  "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
                 ),
               ),
-              SizedBox(height: height * 0.02),
-              CustomText.qText(
-                "John Doe",
-                size: width * 0.055,
-                weight: FontWeight.w700,
-                color: const Color(0xff4e1c74),
-              ),
-              CustomText.qText(
-                "johndoe@gmail.com",
-                size: width * 0.04,
-                weight: FontWeight.w700,
-              ),
-              SizedBox(height: height * 0.015),
-              AppButton(
-                text: 'Edit Profile',
-                intrinsicWidth: true,
-                bgColorOpacity: .73,
-                height: 34,
-                suffix: [Image.asset(Images.editIcon, height: 16, width: 16)],
-                onTap: () => Get.to(() => const EditAddressScreen()),
-              ),
-              SizedBox(height: height * 0.04),
-              _buildMenuItem(
-                  imgIcon: Images.cartIcon,
-                  'Order History',
-                  () => Get.to(() => const OrderHistoryScreen())),
-              _buildMenuItem(imgIcon: Images.locationPinIcon1, "Save Address",
-                  () {
-                Get.to(() => const SaveAddressScreen());
-              }),
-              _buildMenuItem(imgIcon: Images.cardIcon, "Payment Methods", () {
-                Get.to(() => const PaymentMethodsScreen());
-              }),
-              _buildMenuItem(imgIcon: Images.infoIcon, "About Us", () {
-                Get.to(() => const AboutUsScreen());
-              }),
-              _buildMenuItem(imgIcon: Images.faqsIcon, "FAQs", () {
-                Get.to(() => const FaqScreen());
-              }),
-              _buildMenuItem(imgIcon: Images.supportIcon, "Contact Us", () {
-                Get.to(() => const ContactUsScreen());
-              }),
-              _buildMenuItem(icon: Icons.power_settings_new, "Logout",
-                  () async {
-                if (!await AppDialog.confirm(
-                    title: 'Logout!', message: 'Are you sure, logout?')) {
-                  return;
-                }
-                await SharedPrefs.clear();
-                Get.deleteAll(force: true);
-                Get.offAll(() => LoginScreen());
-              }),
-            ],
-          ),
+            ),
+            SizedBox(height: height * 0.02),
+            CustomText.qText(
+              "John Doe",
+              size: width * 0.055,
+              weight: FontWeight.w700,
+              color: const Color(0xff4e1c74),
+            ),
+            CustomText.qText(
+              "johndoe@gmail.com",
+              size: width * 0.04,
+              weight: FontWeight.w700,
+            ),
+            SizedBox(height: height * 0.015),
+            AppButton(
+              text: 'Edit Profile',
+              intrinsicWidth: true,
+              bgColorOpacity: .73,
+              height: 34,
+              suffix: [Image.asset(Images.editIcon, height: 16, width: 16)],
+              onTap: () => Get.to(() => const EditAddressScreen()),
+            ),
+            SizedBox(height: height * 0.04),
+            _buildMenuItem(
+                imgIcon: Images.cartIcon,
+                'Order History',
+                () => Get.to(() => const OrderHistoryScreen())),
+            _buildMenuItem(imgIcon: Images.locationPinIcon1, "Save Address",
+                () {
+              Get.to(() => const SaveAddressScreen());
+            }),
+            _buildMenuItem(imgIcon: Images.cardIcon, "Payment Methods", () {
+              Get.to(() => const PaymentMethodsScreen());
+            }),
+            _buildMenuItem(imgIcon: Images.infoIcon, "About Us", () {
+              Get.to(() => const AboutUsScreen());
+            }),
+            _buildMenuItem(imgIcon: Images.faqsIcon, "FAQs", () {
+              Get.to(() => const FaqScreen());
+            }),
+            _buildMenuItem(imgIcon: Images.supportIcon, "Contact Us", () {
+              Get.to(() => const ContactUsScreen());
+            }),
+            _buildMenuItem(icon: Icons.power_settings_new, "Logout", () async {
+              if (!await AppDialog.confirm(
+                  title: 'Logout!', message: 'Are you sure, logout?')) {
+                return;
+              }
+              await SharedPrefs.clear();
+              Get.deleteAll(force: true);
+              Get.offAll(() => LoginScreen());
+            }),
+          ],
         ),
       ),
     );
