@@ -7,7 +7,6 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  await SharedPrefs.init();
   runApp(const MyApp());
 }
 

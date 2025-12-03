@@ -109,7 +109,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: Row(
           children: [
             Radio<String>(
-              activeColor: ColorConstants.selctedColor,
+              activeColor: ColorConstants.selectedColor,
               value: title,
               groupValue: selectedMethod,
               onChanged: (val) {

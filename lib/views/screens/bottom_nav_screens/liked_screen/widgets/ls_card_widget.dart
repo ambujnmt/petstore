@@ -28,14 +28,14 @@ class LsCardWidget extends StatelessWidget {
                   child: Row(
                     children: [
                       CustomContainer.lightContainer(
-                          radius: 50,
+                          radiusValue: 50,
                           padding: const EdgeInsets.symmetric(
                               vertical: 4, horizontal: 9),
                           child: CustomText.pText(item['gender']!,
-                              color: ColorConstants.selctedColor, size: 10)),
+                              color: ColorConstants.selectedColor, size: 10)),
                       widthSpace8,
                       CustomContainer.lightContainer(
-                          radius: 50,
+                          radiusValue: 50,
                           padding: const EdgeInsets.symmetric(
                               vertical: 4, horizontal: 8),
                           child: CustomText.pText(item['age']!,
@@ -82,20 +82,21 @@ class LsCardWidget extends StatelessWidget {
                                 onTap: () => AppToast.show('Coming soon!'),
                                 child: CustomText.pText('Details',
                                     size: 11,
-                                    color: ColorConstants.selctedColor))
+                                    color: ColorConstants.selectedColor))
                           ],
                         ),
                         heightSpace25,
                         Row(
                           children: [
                             CustomText.qText(item['rate'],
-                                size: 12, color: ColorConstants.selctedColor),
+                                size: 12, color: ColorConstants.selectedColor),
                             const Spacer(),
                             AppButton(
                               height: 20,
                               intrinsicWidth: true,
                               bgColorOpacity: .75,
                               text: 'Add To Cart',
+                              // textSize: 12,
                               onTap: () => AppToast.show('Coming soon!'),
                             )
                           ],

@@ -64,7 +64,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       isGradient: true,
                       bgColorOpacity: .65,
                       width: Get.width,
-                      radius: 0),
+                      radiusValue: 0),
                   CustomContainer.lightContainer(
                       height: 260,
                       width: 260,

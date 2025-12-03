@@ -13,7 +13,7 @@ class ColorConstants {
   static const indictorColor = Color(0xff720eec);
   static const deleteColor = Color(0xff4e1c74);
   static const textColor = Color(0xfff46694);
-  static const selctedColor = Color(0xffee017c);
+  static const selectedColor = Color(0xffee017c);
   static const selectedGradient = LinearGradient(
     colors: [Colors.black, Colors.black],
     begin: Alignment.topLeft,

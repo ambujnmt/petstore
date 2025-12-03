@@ -8,7 +8,6 @@ class AppLoader {
   static void show({String? message, bool canClose = true}) {
     if (_isShowing) return;
     _isShowing = true;
-
     Get.dialog(
       PopScope(
         canPop: canClose,
@@ -65,7 +64,7 @@ class AppLoader {
     if (_isShowing && Get.isDialogOpen == true) {
       Get.back();
       _isShowing = false;
-      await Future.delayed(const Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 150));
     }
   }
 
@@ -95,8 +94,8 @@ Widget _loaderAnimation({double? size, Color? color1, Color? color2}) {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: index.isEven
-              ? color1 ?? ColorConstants.indictorColor
-              : color2 ?? ColorConstants.selctedColor,
+              ? color1 ?? ColorConstants.selectedColor
+              : color2 ?? ColorConstants.selectedColor,
         ),
       );
     },

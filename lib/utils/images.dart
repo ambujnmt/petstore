@@ -13,6 +13,9 @@ class Images {
   static const aboutUs = 'assets/images/about_us_img.png';
   static const aboutUs2 = 'assets/images/about_us_img2.png';
   static const faqImg = 'assets/images/faq_img.png';
+  static const imgPlaceholder = 'assets/images/img-placeholder.png';
+  static const imgError = 'assets/images/img-error.jpg';
+
 // Icons
   static const arrowRightIcon = 'assets/images/icons/arrow-right-icon.png';
   static const pawIcon = 'assets/images/icons/paw-icon.png';

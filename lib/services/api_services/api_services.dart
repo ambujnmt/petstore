@@ -5,7 +5,7 @@ import '../../utils/app_imports.dart';
 import 'api_headers.dart.dart';
 
 class ApiServices {
-  static const baseUrl = 'site2demo.in';
+  static const baseUrl = 'blanchedalmond-capybara-827173.hostingersite.com';
 
   static Future<dynamic> post(
     dynamic endPoint, {
@@ -96,7 +96,7 @@ class ApiServices {
   }
 
   static setUri(String endPoint, {Map<String, String>? queries}) {
-    return Uri.https(baseUrl, '/marriageapp/api$endPoint', queries);
+    return Uri.https(baseUrl, 'wp-json/pinkpaws/v1$endPoint', queries);
   }
 
   static handleResponse(

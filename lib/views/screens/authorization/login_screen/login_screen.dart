@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 60),
-                const Spacer(flex: 2),
+                const Spacer(flex: 3),
                 AppTextField(
                   controller: _con.emailController,
                   hintText: 'Email Address',
@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => AppToast.show('Coming soon.'),
                     child: CustomText.qText("Forget Password?",
                         color: ColorConstants.textColor,
                         weight: FontWeight.bold),
@@ -55,15 +55,19 @@ class LoginScreen extends StatelessWidget {
                   onTap: _con.onLoginTap,
                 ),
                 const SizedBox(height: 1),
-                const Spacer(flex: 2),
+                const Spacer(flex: 3),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomText.qText("Don’t have an account? "),
+                    CustomText.qText('Don\'t have an account? '),
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
                         closeKeyboard();
-                        Get.to(() => const SignupScreen());
+                        final signupSuccess =
+                            await Get.to(() => const SignupScreen()) ?? false;
+                        if (signupSuccess) {
+                          Get.back(result: true);
+                        }
                       },
                       child: CustomText.qText(
                         "Signup",
@@ -73,7 +77,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 30),
+                const Spacer(flex: 1),
               ],
             ),
           ),

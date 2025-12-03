@@ -1,4 +1,5 @@
 import 'dart:convert';
+import '../../models/user_model.dart';
 import '../../utils/app_imports.dart';
 
 class UserStorage {
@@ -12,10 +13,11 @@ class UserStorage {
     await SharedPrefs.setString(_userDataKey, jsonEncode(data));
   }
 
-  // static UserModel getUserData() {
-  //   final user = SharedPrefs.getString(_userDataKey);
-  //   return UserModel.fromJson(jsonDecode(user!));
-  // }
+  static UserModel? getUserData() {
+    final user = SharedPrefs.getString(_userDataKey);
+    if (user == null) return null;
+    return UserModel.fromJson(jsonDecode(user));
+  }
 
   static bool isUserDataAvailable() {
     if (SharedPrefs.containsKey(_userDataKey)) {

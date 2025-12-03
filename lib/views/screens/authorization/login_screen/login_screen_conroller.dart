@@ -1,5 +1,4 @@
 import '../../../../utils/app_imports.dart';
-import '../../../../zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 
 class LoginScreenConroller extends GetxController {
   final emailController = TextEditingController();
@@ -10,8 +9,22 @@ class LoginScreenConroller extends GetxController {
 
   Future<void> onLoginTap() async {
     if (!_validator()) return;
-    // await UserStorage.setToken('dfdkjfd');
-    Get.to(() => const BottomNavScreen());
+    closeKeyboard();
+    AppLoader.show();
+    final res = await ApiServices.post('/login', payload: {
+      'email': emailController.text,
+      'password': passwordController.text
+    });
+    await AppLoader.close();
+    if (res != null) {
+      await UserStorage.setToken(res['token']);
+      final userSuccess = await UserController.getUserData();
+      if (!userSuccess) {
+        await UserStorage.setToken();
+        return;
+      }
+      Get.back(result: true);
+    }
   }
 
   bool _validator() {

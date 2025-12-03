@@ -12,7 +12,7 @@ class HorizontalStepTracker extends StatelessWidget {
     super.key,
     this.maxSteps = 4,
     this.currentStep = 1,
-    this.activeColor = ColorConstants.selctedColor,
+    this.activeColor = ColorConstants.selectedColor,
     Color? inactiveColor,
     this.circleSize = 18,
     this.lineHeight = 3,

@@ -4,7 +4,8 @@ import '../screens/notifications_screen/notification_view.dart';
 
 class AppSliverAppbar extends StatefulWidget {
   final Widget? body;
-  const AppSliverAppbar({super.key, this.body});
+  final Future<void> Function() onRefresh;
+  const AppSliverAppbar({super.key, this.body, required this.onRefresh});
 
   @override
   State<AppSliverAppbar> createState() => _AppSliverAppbarState();
@@ -100,45 +101,49 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          controller: _scrollController,
-          child: Column(
-            children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    height: 300,
-                    width: Get.width,
-                    padding: const EdgeInsets.all(AppDimentions.screenPaddingS),
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Color(0xFFEE017C), Color(0xFF4E1C74)],
+        body: AppRefreshIndicator(
+          onRefresh: widget.onRefresh,
+          child: SingleChildScrollView(
+            controller: _scrollController,
+            child: Column(
+              children: [
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      height: 300,
+                      width: Get.width,
+                      padding:
+                          const EdgeInsets.all(AppDimentions.screenPaddingS),
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [Color(0xFFEE017C), Color(0xFF4E1C74)],
+                        ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: -24,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      children: [
-                        const Spacer(flex: 7),
-                        Image.asset(
-                          height: 200,
-                          Images.dashCat,
-                        ),
-                        const Spacer(flex: 3),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              heightSpace30,
-              widget.body ?? const SizedBox()
-            ],
+                    Positioned(
+                      bottom: -24,
+                      left: 0,
+                      right: 0,
+                      child: Row(
+                        children: [
+                          const Spacer(flex: 7),
+                          Image.asset(
+                            height: 200,
+                            Images.dashCat,
+                          ),
+                          const Spacer(flex: 3),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                heightSpace30,
+                widget.body ?? const SizedBox()
+              ],
+            ),
           ),
         ));
   }

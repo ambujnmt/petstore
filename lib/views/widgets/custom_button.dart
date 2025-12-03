@@ -67,7 +67,7 @@ class AppButton extends StatelessWidget {
                 gradient: bgColor == null && !transparent
                     ? LinearGradient(
                         colors: [
-                          ColorConstants.selctedColor
+                          ColorConstants.selectedColor
                               .withValues(alpha: bgColorOpacity),
                           ColorConstants.deleteColor
                               .withValues(alpha: bgColorOpacity)
@@ -83,7 +83,7 @@ class AppButton extends StatelessWidget {
                     ? null
                     : Border.all(
                         color: transparent
-                            ? ColorConstants.selctedColor
+                            ? ColorConstants.selectedColor
                             : Colors.transparent,
                         width: 1.7,
                       ),
@@ -104,7 +104,7 @@ class AppButton extends StatelessWidget {
                           child: CustomText.qText(
                             text ?? 'customButton',
                             lines: 1,
-                            size: textSize ?? 17,
+                            size: textSize ?? height * .6,
                             weight: FontWeight.w700,
                             color: textColor ?? (transparent ? black : white),
                             align: TextAlign.center,

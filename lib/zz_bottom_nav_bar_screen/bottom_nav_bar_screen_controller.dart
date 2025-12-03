@@ -16,4 +16,10 @@ class BottomNavBarScreenController extends GetxController {
     await waitForSec(2);
     canClose = false;
   }
+
+  @override
+  void onInit() {
+    super.onInit();
+    AuthPrefs.setonBoard(true);
+  }
 }

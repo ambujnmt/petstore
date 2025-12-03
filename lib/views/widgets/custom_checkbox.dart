@@ -13,13 +13,13 @@ Widget customCheckbox({
         height: 20,
         width: 20,
         padding: EdgeInsets.zero,
-        radius: 2,
+        radiusValue: 2,
         child: Obx(
           () => Checkbox(
             visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
             value: value?.value,
             side: BorderSide.none,
-            activeColor: ColorConstants.selctedColor,
+            activeColor: ColorConstants.selectedColor,
             onChanged: onChanged ?? (val) => value?.toggle(),
           ),
         ),

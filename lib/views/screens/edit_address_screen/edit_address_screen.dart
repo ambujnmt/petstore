@@ -83,7 +83,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
                       'Use Current Location',
                       size: screenWidth * 0.04,
                       weight: FontWeight.w600,
-                      color: ColorConstants.selctedColor,
+                      color: ColorConstants.selectedColor,
                     )
                   ],
                 ),

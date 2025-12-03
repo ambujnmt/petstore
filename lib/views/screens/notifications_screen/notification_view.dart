@@ -24,7 +24,7 @@ class NotificationView extends StatelessWidget {
                               color: fromHex('f3e8ff'),
                               padding: const EdgeInsets.all(4),
                               hideShadow: true,
-                              radius: 3,
+                              radiusValue: 3,
                               height: 28,
                               width: 28,
                               child: Image.asset(Images.pawIcon)),

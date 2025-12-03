@@ -46,15 +46,15 @@ Widget recommendedWidget() {
                           child: Row(
                             children: [
                               CustomContainer.lightContainer(
-                                  radius: 50,
+                                  radiusValue: 50,
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 4, horizontal: 9),
                                   child: CustomText.pText(item['gender']!,
-                                      color: ColorConstants.selctedColor,
+                                      color: ColorConstants.selectedColor,
                                       size: 10)),
                               widthSpace8,
                               CustomContainer.lightContainer(
-                                  radius: 50,
+                                  radiusValue: 50,
                                   padding: const EdgeInsets.symmetric(
                                       vertical: 4, horizontal: 8),
                                   child: CustomText.pText(item['age']!,
@@ -105,7 +105,8 @@ Widget recommendedWidget() {
                                             AppToast.show('Coming soon!'),
                                         child: CustomText.pText('Details',
                                             size: 11,
-                                            color: ColorConstants.selctedColor))
+                                            color:
+                                                ColorConstants.selectedColor))
                                   ],
                                 ),
                                 heightSpace25,
@@ -113,7 +114,7 @@ Widget recommendedWidget() {
                                   children: [
                                     CustomText.qText(item['rate']!,
                                         size: 12,
-                                        color: ColorConstants.selctedColor),
+                                        color: ColorConstants.selectedColor),
                                     const Spacer(),
                                     AppButton(
                                       height: 20,

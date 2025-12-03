@@ -36,7 +36,7 @@ class AppDialog {
                     if (showCancelButton && cancelText != null)
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: ColorConstants.selctedColor,
+                          backgroundColor: ColorConstants.selectedColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4),
                           ),

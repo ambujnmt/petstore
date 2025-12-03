@@ -39,7 +39,7 @@ Widget healthWidget() {
         customIconButton(
           icon: Icons.verified_user_outlined,
           bgColor: fromHex('ffe5e0'),
-          iconColor: ColorConstants.selctedColor,
+          iconColor: ColorConstants.selectedColor,
         ),
         widthSpace10,
         Expanded(
@@ -54,7 +54,7 @@ Widget healthWidget() {
                 (index) {
                   return CustomContainer.lightContainer(
                       margin: const EdgeInsets.only(right: 10),
-                      radius: 100,
+                      radiusValue: 100,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 13, vertical: 4),
                       child: CustomText.pText(_vacList[index], size: 14));

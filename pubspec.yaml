@@ -20,6 +20,8 @@ dependencies:
   video_player: ^2.10.1
   gif_view: ^1.0.3
   gif: ^2.3.0
+  cached_network_image: ^3.4.1
+  skeletonizer: ^2.1.1
 
 dev_dependencies:
   flutter_test:

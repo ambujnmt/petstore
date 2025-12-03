@@ -15,7 +15,7 @@ Widget catDetailsWidget() {
                 color: ColorConstants.deleteColor),
           ),
           CustomText.pText('\$2450.00',
-              size: 20, color: ColorConstants.selctedColor)
+              size: 20, color: ColorConstants.selectedColor)
         ],
       ),
       heightSpace7,

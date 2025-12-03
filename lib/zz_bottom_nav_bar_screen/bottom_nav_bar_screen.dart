@@ -1,6 +1,6 @@
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen.dart';
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/liked_screen.dart';
 import 'package:pinkpawscat/views/screens/bottom_nav_screens/menu_screen/menu_screen.dart';
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/profile_screen/profile.dart';
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/profile_screen/profile_screen.dart';
 import '../utils/app_imports.dart';
 import '../views/screens/bottom_nav_screens/home_screen/home_screen.dart';
 import 'bottom_nav_bar_screen_controller.dart';
@@ -18,7 +18,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List<Widget> _pages = const [
     HomeScreen(),
     MenuScreen(),
-    LikeScreen(),
+    LikedScreen(),
     ProfileScreen(),
   ];
 
@@ -63,7 +63,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                    ColorConstants.selctedColor
+                                    ColorConstants.selectedColor
                                         .withValues(alpha: .76),
                                     ColorConstants.deleteColor
                                         .withValues(alpha: .76),

@@ -1,5 +1,3 @@
-import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
-
 import '../../../../utils/app_imports.dart';
 
 class SignupScreenController extends GetxController {
@@ -17,7 +15,25 @@ class SignupScreenController extends GetxController {
 
   Future<void> onSignupTap() async {
     if (!_validator()) return;
-    Get.offAll(() => LoginScreen(), transition: Transition.topLevel);
+    closeKeyboard();
+    AppLoader.show();
+    final res = await ApiServices.post('/signup', payload: {
+      'full_name': nameController.text,
+      'mobile_number': mobileController.text,
+      'email_address': emailController.text,
+      'password': passwordController.text,
+      'confirm_password': confirmPasswordController.text
+    });
+    await AppLoader.close();
+    if (res != null) {
+      await UserStorage.setToken(res['token']);
+      final userSuccess = await UserController.getUserData();
+      if (!userSuccess) {
+        await UserStorage.setToken();
+        return;
+      }
+      Get.back(result: true);
+    }
   }
 
   bool _validator() {

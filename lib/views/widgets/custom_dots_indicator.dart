@@ -15,7 +15,7 @@ Widget customDotsIndicator(
           child: Icon(
             Icons.circle,
             size: iconsSize ?? 10,
-            color: isActive ? ColorConstants.selctedColor : white,
+            color: isActive ? ColorConstants.selectedColor : white,
           ),
         );
       }),
