@@ -4,29 +4,36 @@ import 'package:pinkpawscat/views/screens/item_details_screen/item_details_scree
 import '../../../../utils/app_imports.dart';
 
 Widget imageWidget() {
-  final con = Get.find<ItemDetailsScreenController>();
+  final con = Get.find<PetDetailsScreenController>();
+  final imgs = [con.petData.value!.image];
   return Stack(
     alignment: Alignment.bottomCenter,
     children: [
       SizedBox(
         height: 288,
         child: CarouselSlider(
-          items: _imgList
-              .map((item) =>
-                  Image.asset(item, fit: BoxFit.cover, width: double.infinity))
+          items: imgs
+              .map(
+                (item) => AppNetworkImage(
+                  imageUrl: item,
+                  width: double.infinity,
+                  radiusValue: 0,
+                ),
+              )
               .toList(),
           options: CarouselOptions(
             height: 288,
             autoPlay: true,
             enlargeCenterPage: true,
             viewportFraction: 1,
+            autoPlayInterval: const Duration(seconds: 6),
             onPageChanged: (index, reason) => con.imageIndex(index),
           ),
         ),
       ),
       Obx(
         () => customDotsIndicator(
-            length: _imgList.length, currentIndex: con.imageIndex.value),
+            length: imgs.length, currentIndex: con.imageIndex.value),
       ),
       Positioned(
         top: MediaQuery.of(Get.context!).padding.top,
@@ -58,10 +65,3 @@ Widget imageWidget() {
     ],
   );
 }
-
-final _imgList = [
-  'assets/images/cat-item-details.png',
-  'assets/images/cat-item-details.png',
-  'assets/images/cat-item-details.png',
-  'assets/images/cat-item-details.png',
-];

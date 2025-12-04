@@ -25,14 +25,13 @@ class CustomContainer {
             ))
         : null;
 
-// MAIN CHILD INSIDE
-    Widget content = Padding(
-      padding: padding ?? const EdgeInsets.all(10),
-      child: child,
-    );
+    // MAIN CHILD INSIDE
+    Widget content = child ?? const SizedBox();
 
     // APPLY CLIPPING ONLY WHEN NECESSARY
-    if (shape == BoxShape.rectangle && radiusFinal != null) {
+    if (shape == BoxShape.circle) {
+      content = ClipOval(child: content);
+    } else if (radiusFinal != null) {
       content = ClipRRect(borderRadius: radiusFinal, child: content);
     }
 
@@ -41,6 +40,7 @@ class CustomContainer {
         width: width,
         margin: margin,
         clipBehavior: shape == BoxShape.circle ? Clip.antiAlias : Clip.none,
+        padding: padding ?? EdgeInsets.all(paddingValue ?? 10),
         decoration: BoxDecoration(
           shape: shape,
           border: border,
@@ -97,7 +97,9 @@ class CustomContainer {
     );
 
     // APPLY CLIPPING ONLY WHEN NECESSARY
-    if (shape == BoxShape.rectangle && radiusFinal != null) {
+    if (shape == BoxShape.circle) {
+      content = ClipOval(child: content);
+    } else if (radiusFinal != null) {
       content = ClipRRect(borderRadius: radiusFinal, child: content);
     }
 

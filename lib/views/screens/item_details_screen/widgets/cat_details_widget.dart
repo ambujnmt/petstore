@@ -1,7 +1,10 @@
+import 'package:pinkpawscat/views/screens/item_details_screen/item_details_screen_controller.dart';
+
 import '../../../../utils/app_imports.dart';
 import 'gender_widget.dart';
 
 Widget catDetailsWidget() {
+  final con = Get.find<PetDetailsScreenController>();
   return CustomContainer.lightContainer(
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -9,12 +12,12 @@ Widget catDetailsWidget() {
       Row(
         children: [
           Expanded(
-            child: CustomText.qText('Ornella',
+            child: CustomText.qText(con.petData.value!.name,
                 size: 30,
                 weight: FontWeight.w700,
                 color: ColorConstants.deleteColor),
           ),
-          CustomText.pText('\$2450.00',
+          CustomText.pText('\$${con.petData.value!.price}',
               size: 20, color: ColorConstants.selectedColor)
         ],
       ),
@@ -22,18 +25,24 @@ Widget catDetailsWidget() {
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            Icons.circle,
-            size: 12,
-            color: fromHex('b45309'),
-          ),
-          widthSpace10,
+          if (con.petData.value!.colorHex.isNotEmpty) ...[
+            CustomContainer.lightContainer(
+              shape: BoxShape.circle,
+              paddingValue: 0,
+              child: Icon(
+                Icons.circle,
+                size: 13,
+                color: fromHex(con.petData.value!.colorHex),
+              ),
+            ),
+            widthSpace8,
+          ],
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText.pText('Black Golden Shaded', size: 14),
-              CustomText.pText('DOB: 03/29/2025', size: 14),
+              CustomText.pText(con.petData.value!.color, size: 14),
+              CustomText.pText('DOB: __/__/____', size: 14),
             ],
           ))
         ],
@@ -46,7 +55,7 @@ Widget catDetailsWidget() {
         size: 12,
         lines: 30,
         weight: FontWeight.w400,
-        'Ornella is a stunning Queen, British Longhair with a gentle and affectionate personality. She loves spending time in cozy corners and enjoys being around people and other pets. Calm yet playful, Ornella adapts easily to family environments, making her a perfect companion. Her elegant appearance and loving nature bring warmth, joy, and charm to any household.',
+        con.petData.value!.description,
       ),
       heightSpace10,
     ]),

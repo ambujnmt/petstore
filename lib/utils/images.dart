@@ -46,4 +46,5 @@ class Images {
   static const calendarIcon = 'assets/images/icons/calendar.png';
   static const deliveredIcon = 'assets/images/icons/delivered_icon.png';
   static const catEmoji = 'assets/images/icons/cat_emoji.png';
+  static const filterIcon = 'assets/images/icons/filter.png';
 }

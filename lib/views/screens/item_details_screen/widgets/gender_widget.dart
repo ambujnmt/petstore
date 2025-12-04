@@ -1,28 +1,30 @@
 import '../../../../utils/app_imports.dart';
+import '../item_details_screen_controller.dart';
 
 Widget genderWidget() {
+  final con = Get.find<PetDetailsScreenController>();
   return Row(
     children: [
-      _buildItem(
+      buildGenderItem(
           icon: Images.genderIcon,
           color: fromHex('ffe5e0'),
           text1: 'Gender',
-          text2: 'Female'),
-      _buildItem(
+          text2: con.petData.value!.gender),
+      buildGenderItem(
           icon: Images.calendarIcon,
           color: fromHex('e0fff4'),
-          text1: 'Gender',
-          text2: 'Female'),
-      _buildItem(
+          text1: 'Age',
+          text2: '${con.petData.value!.age} Year'),
+      buildGenderItem(
           icon: Images.tagicon,
           color: fromHex('ffe5e0'),
           text1: 'Braed',
-          text2: 'British Longhair')
+          text2: con.petData.value!.species)
     ],
   );
 }
 
-Widget _buildItem({
+Widget buildGenderItem({
   required String icon,
   required Color color,
   required String text1,

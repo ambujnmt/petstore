@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final double? width;
   final double height;
+  final SizedBox? spaceBetweenSuffix;
   final double? radius;
   final double bgColorOpacity;
   final bool intrinsicWidth;
@@ -22,6 +23,7 @@ class AppButton extends StatelessWidget {
     super.key,
     this.text,
     this.onTap,
+    this.spaceBetweenSuffix,
     this.loader = false,
     this.textSize,
     this.width,
@@ -110,7 +112,10 @@ class AppButton extends StatelessWidget {
                             align: TextAlign.center,
                           ),
                         ),
-                        if (suffix != null) ...[widthSpace10, ...suffix!]
+                        if (suffix != null) ...[
+                          spaceBetweenSuffix ?? widthSpace10,
+                          ...suffix!
+                        ]
                       ],
                     ),
             ),

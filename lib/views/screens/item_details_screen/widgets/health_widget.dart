@@ -1,9 +1,11 @@
 import '../../../../utils/app_imports.dart';
+import '../item_details_screen_controller.dart';
 
 Widget healthWidget() {
+  final con = Get.find<PetDetailsScreenController>();
   return CustomContainer.lightContainer(
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      CustomText.qText('Ornella',
+      CustomText.qText(con.petData.value!.name,
           size: 20, weight: FontWeight.w700, color: ColorConstants.deleteColor),
       heightSpace18,
       Row(

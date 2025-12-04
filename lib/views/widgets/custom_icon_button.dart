@@ -14,7 +14,6 @@ Widget customIconButton({
 }) {
   final double buttonSize = size ?? 40;
   final double iconPadding = buttonSize * 0.01;
-  final double iconBoxSize = buttonSize - (iconPadding * 2);
   return GestureDetector(
     onTap: onTap,
     child: CustomContainer.lightContainer(
@@ -23,20 +22,25 @@ Widget customIconButton({
       border: border,
       shape: BoxShape.circle,
       hideShadow: hideShadow ?? true,
-      paddingValue: iconPadding,
+      paddingValue: padding ?? iconPadding,
       color: bgColor ?? fromHex('e0fff4'),
       child: imgIcon == null
           ? Icon(
               icon ?? Icons.health_and_safety_outlined,
               color: iconColor,
-              size: iconSize ?? iconBoxSize * 0.6,
+              size: iconSize ?? buttonSize * 0.5,
             )
-          : Image.asset(
-              imgIcon,
-              color: iconColor,
-              height: iconSize ?? iconBoxSize * 0.7,
-              width: iconSize ?? iconBoxSize * 0.7,
-              fit: BoxFit.contain,
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  imgIcon,
+                  color: iconColor,
+                  height: iconSize ?? buttonSize * 0.6,
+                  width: iconSize ?? buttonSize * 0.6,
+                  fit: BoxFit.contain,
+                ),
+              ],
             ),
     ),
   );
