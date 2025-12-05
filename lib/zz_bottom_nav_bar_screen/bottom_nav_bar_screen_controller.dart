@@ -21,5 +21,6 @@ class BottomNavBarScreenController extends GetxController {
   void onInit() {
     super.onInit();
     AuthPrefs.setonBoard(true);
+    debugPrint('token: ${UserStorage.getToken()}');
   }
 }

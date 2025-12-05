@@ -103,6 +103,7 @@ class _AppSliverAppbarState extends State<AppSliverAppbar> {
         ),
         body: AppRefreshIndicator(
           onRefresh: widget.onRefresh,
+          error: false,
           child: SingleChildScrollView(
             controller: _scrollController,
             child: Column(

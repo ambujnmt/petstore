@@ -47,4 +47,7 @@ class Images {
   static const deliveredIcon = 'assets/images/icons/delivered_icon.png';
   static const catEmoji = 'assets/images/icons/cat_emoji.png';
   static const filterIcon = 'assets/images/icons/filter.png';
+  static const plusIcon = 'assets/images/icons/plus.png';
+  static const minusIcon = 'assets/images/icons/minus.png';
+  static const deleteIcon = 'assets/images/icons/delete.png';
 }

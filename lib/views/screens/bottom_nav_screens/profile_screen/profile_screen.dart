@@ -1,3 +1,5 @@
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen_controller.dart';
+
 import '../../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/payment_methods_screen/payment_methods_screen.dart';
 import 'package:pinkpawscat/views/screens/about_us_screen/about_us_screen.dart';
@@ -36,6 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen>
       extendBodyBehindAppBar: true,
       body: AppRefreshIndicator(
         onRefresh: con.refreshData,
+        error: false,
         child: SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(
@@ -86,7 +89,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ] else ...[
                   heightSpace20,
                   gotoLoginButton(
-                    onLoginSuccess: () => con.refreshData(),
+                    onLoginSuccess: () {
+                      con.refreshData();
+                      Get.find<LikedScreenController>().refreshData();
+                    },
                   )
                 ],
                 SizedBox(height: height * 0.04),
@@ -114,10 +120,14 @@ class _ProfileScreenState extends State<ProfileScreen>
                   Get.to(() => const ContactUsScreen());
                 }),
                 if (con.user.value != null)
-                  _buildMenuItem(
-                      icon: Icons.power_settings_new,
-                      "Logout",
-                      () => UserController.logoutUser()),
+                  _buildMenuItem(icon: Icons.power_settings_new, "Logout",
+                      () async {
+                    final success = await UserController.logoutUser();
+                    if (success) {
+                      con.refreshData();
+                      Get.find<LikedScreenController>().refreshData();
+                    }
+                  }),
               ],
             ),
           ),

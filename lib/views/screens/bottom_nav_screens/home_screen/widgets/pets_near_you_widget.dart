@@ -2,6 +2,7 @@ import 'package:pinkpawscat/views/screens/bottom_nav_screens/home_screen/home_sc
 import 'package:pinkpawscat/views/screens/item_details_screen/item_details_screen.dart';
 import '../../../../../utils/app_imports.dart';
 import 'featured_card_widget.dart';
+import 'hs_color_widget.dart';
 
 class PetsNearYouWidget extends StatelessWidget {
   PetsNearYouWidget({super.key});
@@ -58,6 +59,7 @@ class HsGridCardWidget extends StatelessWidget {
                 width: constraints.maxWidth,
                 height: constraints.maxHeight * .55,
                 child: Stack(
+                  alignment: Alignment.bottomCenter,
                   children: [
                     Positioned.fill(
                       child: AppNetworkImage(
@@ -65,33 +67,27 @@ class HsGridCardWidget extends StatelessWidget {
                         radiusValue: 0,
                       ),
                     ),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        height: 40,
-                        color: black.withValues(alpha: .3),
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Row(
-                          children: [
-                            CustomContainer.lightContainer(
-                                radiusValue: 50,
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 4, horizontal: 9),
-                                child: CustomText.pText(pet.gender,
-                                    color: ColorConstants.selectedColor,
-                                    size: 10)),
-                            widthSpace8,
-                            CustomContainer.lightContainer(
-                                radiusValue: 50,
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 4, horizontal: 8),
-                                child: CustomText.pText('${pet.age} Years',
-                                    color: ColorConstants.deleteColor,
-                                    size: 10))
-                          ],
-                        ),
+                    Container(
+                      height: 40,
+                      color: black.withValues(alpha: .3),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        children: [
+                          CustomContainer.lightContainer(
+                              radiusValue: 50,
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 9),
+                              child: CustomText.pText(pet.gender,
+                                  color: ColorConstants.selectedColor,
+                                  size: 10)),
+                          widthSpace8,
+                          CustomContainer.lightContainer(
+                              radiusValue: 50,
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 8),
+                              child: CustomText.pText('${pet.age} Years',
+                                  color: ColorConstants.deleteColor, size: 10))
+                        ],
                       ),
                     )
                   ],
@@ -124,12 +120,7 @@ class HsGridCardWidget extends StatelessWidget {
                         heightSpace10,
                         Row(
                           children: [
-                            Icon(
-                              Icons.circle,
-                              color: fromHex('d2691e'),
-                              size: 14,
-                            ),
-                            widthSpace3,
+                            ...hsColorDotWidget(pet.colorHex),
                             Expanded(
                                 child: CustomText.pText(pet.color,
                                     lines: 1, size: 10)),

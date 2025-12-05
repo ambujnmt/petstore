@@ -1,5 +1,5 @@
 class PetModel {
-  final int id;
+  final String id;
   final String name;
   final String price;
   final int stock;
@@ -33,7 +33,7 @@ class PetModel {
 
   factory PetModel.fromJson(Map<String, dynamic> json) {
     return PetModel(
-      id: json['id'] ?? 0,
+      id: json['id'].toString(),
       name: json['name'] ?? '',
       price: json['price'] ?? '',
       stock: json['stock'] ?? 0,

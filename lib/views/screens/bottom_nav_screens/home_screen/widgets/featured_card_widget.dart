@@ -4,6 +4,7 @@ import 'package:pinkpawscat/views/screens/bottom_nav_screens/home_screen/home_sc
 import 'package:pinkpawscat/views/screens/item_details_screen/item_details_screen.dart';
 
 import '../../../../../utils/app_imports.dart';
+import 'hs_color_widget.dart';
 
 class FeaturedPetCardWidget extends StatelessWidget {
   FeaturedPetCardWidget({super.key});
@@ -44,18 +45,18 @@ class FeaturedPetCardWidget extends StatelessWidget {
                                   bgColorOpacity: .65,
                                   text: 'Featured',
                                 )),
-                            Positioned(
-                              top: 10,
-                              right: 10,
-                              child: customIconButton(
-                                icon: Icons.favorite,
-                                iconColor: Colors.black,
-                                size: 35,
-                                bgColor: white,
-                                padding: 0,
-                                onTap: () => AppToast.show('Coming soon.'),
-                              ),
-                            ),
+                            // Positioned(
+                            //   top: 10,
+                            //   right: 10,
+                            //   child: customIconButton(
+                            //     icon: Icons.favorite,
+                            //     iconColor: Colors.black,
+                            //     size: 35,
+                            //     bgColor: white,
+                            //     padding: 0,
+                            //     onTap: () => AppToast.show('Coming soon.'),
+                            //   ),
+                            // ),
                           ],
                         ),
                         Padding(
@@ -118,18 +119,7 @@ class FeaturedPetCardWidget extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  if (pet.colorHex.isNotEmpty) ...[
-                                    CustomContainer.lightContainer(
-                                      shape: BoxShape.circle,
-                                      paddingValue: 0,
-                                      child: Icon(
-                                        Icons.circle,
-                                        size: 13,
-                                        color: fromHex(pet.colorHex),
-                                      ),
-                                    ),
-                                    widthSpace8,
-                                  ],
+                                  ...hsColorDotWidget(pet.colorHex),
                                   Expanded(
                                     child: CustomText.pText(
                                       pet.color,

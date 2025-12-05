@@ -1,4 +1,3 @@
-import 'package:pinkpawscat/zz_bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 import '../utils/app_imports.dart';
 
 class UserController {
@@ -16,23 +15,22 @@ class UserController {
     return false;
   }
 
-  static Future<void> logoutUser() async {
+  static Future<bool> logoutUser() async {
     final no = !await AppDialog.confirm(
       title: 'Logout',
       message: 'Are you sure, logout now?',
     );
-    if (no) return;
+    if (no) return false;
     AppLoader.show();
     final res = await ApiServices.post('/logout');
     if (res == null) {
       AppToast.error('Something went wrong.');
       AppLoader.close();
-      return;
+      return false;
     }
-    await Get.deleteAll(force: true);
     await SharedPrefs.clear();
     await AppLoader.close();
-    Get.offAll(() => const BottomNavScreen(), transition: Transition.topLevel);
+    return true;
   }
 
   static Future<void> refreshUserData([int? userId]) async {

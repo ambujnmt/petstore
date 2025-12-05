@@ -8,12 +8,9 @@ class AppTextField extends StatelessWidget {
   final TextCapitalization? capitalization;
   final String? hintText;
   final String? label;
-  final bool? isSuffixIcon;
   final Widget? prefixIcon;
-  final Widget? suffixIcon;
   final bool? obsecureText;
-  final Function()? onSuffixTap;
-  final double horizontalPadding;
+  final double? textSize;
   final bool readOnly;
   final bool isRequired;
   final bool useObscure;
@@ -23,25 +20,24 @@ class AppTextField extends StatelessWidget {
   final int? maxLines;
   final List<Widget>? actions;
   final double? bottomPadding;
+  final EdgeInsetsGeometry? padding;
   AppTextField({
     super.key,
     this.controller,
     this.node,
+    this.textSize,
     this.inputType,
+    this.padding,
     this.capitalization,
     this.inputAction,
     this.label,
     this.hintText,
-    this.isSuffixIcon = false,
     this.prefixIcon,
     this.minLines,
     this.maxLines,
     this.bottomPadding,
-    this.suffixIcon,
     this.actions,
-    this.onSuffixTap,
     this.obsecureText = false,
-    this.horizontalPadding = 0,
     this.readOnly = false,
     this.isRequired = false,
     this.useObscure = false,
@@ -70,17 +66,18 @@ class AppTextField extends StatelessWidget {
             textInputAction: inputAction,
             keyboardType: inputType,
             textCapitalization: capitalization ?? TextCapitalization.none,
-            style: CustomText.pTextStyle(),
+            style: CustomText.pTextStyle(size: textSize),
             obscureText: obscureText.value,
             minLines: useObscure ? 1 : minLines ?? 1,
             maxLines: useObscure ? 1 : maxLines,
             onChanged: onChanged ?? (value) => errorText!(''),
             decoration: InputDecoration(
               prefixIcon: prefixIcon,
+              contentPadding: padding,
               errorText: errorText!.value.isEmpty ? null : errorText!.value,
               errorStyle: CustomText.qTextStyle(size: 15),
               hintText: hintText ?? "Input text",
-              hintStyle: CustomText.qTextStyle(),
+              hintStyle: CustomText.qTextStyle(size: textSize),
               border: _outlineInputBorder,
               enabledBorder: _outlineInputBorder,
               focusedBorder: _outlineInputBorder.copyWith(

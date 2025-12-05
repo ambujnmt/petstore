@@ -1,4 +1,5 @@
 import 'package:pinkpawscat/views/screens/item_details_screen/widgets/image_widget.dart';
+import 'package:pinkpawscat/views/screens/my_cart_screen/my_cart_screen.dart';
 import '../../../utils/app_imports.dart';
 import 'item_details_screen_controller.dart';
 import 'widgets/cat_details_widget.dart';
@@ -25,18 +26,18 @@ class PetDetailsScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    imageWidget(),
+                    PdsImgSliderWidget(),
                     heightSpace14,
                     Padding(
                       padding: AppDimentions.defaultScreenPadding,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            catDetailsWidget(),
+                            CatDetailsWidget(),
                             heightSpace25,
-                            healthWidget(),
+                            HealthWidget(),
                             heightSpace25,
-                            personalityWidget(),
+                            PersonalityWidget(),
                             heightSpace25,
                             customCheckbox(
                                 text:
@@ -75,7 +76,7 @@ class PetDetailsScreen extends StatelessWidget {
                                 width: Get.width - 100,
                                 height: 40,
                                 text: 'Adopt Me Now',
-                                onTap: () => AppToast.show('Coming soon!'),
+                                onTap: () => Get.to(() => MyCartScreen()),
                               ),
                             ),
                           ]),

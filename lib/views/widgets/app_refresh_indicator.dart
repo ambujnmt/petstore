@@ -18,22 +18,22 @@ class AppRefreshIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size1 = size ?? MediaQuery.of(context).size;
-
+    final content = error
+        ? ListView(
+            children: [
+              SizedBox(
+                height: size1.height,
+                child: Center(
+                  child: CustomText.pText(message ?? 'No data available.'),
+                ),
+              ),
+            ],
+          )
+        : child;
     return RefreshIndicator(
       onRefresh: onRefresh,
       color: ColorConstants.selectedColor,
-      child: error
-          ? ListView(
-              children: [
-                SizedBox(
-                  height: size1.height,
-                  child: Center(
-                    child: CustomText.pText(message ?? 'No data available.'),
-                  ),
-                ),
-              ],
-            )
-          : child ?? ListView(),
+      child: content ?? ListView(),
     );
   }
 }

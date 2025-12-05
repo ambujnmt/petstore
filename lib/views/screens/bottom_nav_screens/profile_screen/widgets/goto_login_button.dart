@@ -8,6 +8,11 @@ Widget gotoLoginButton({VoidCallback? onLoginSuccess}) {
     bgColorOpacity: .73,
     height: 34,
     onTap: () async {
+      final user = UserStorage.getUserData();
+      if (user != null) {
+        onLoginSuccess?.call();
+        return;
+      }
       final loginSuccess = await Get.to(() => LoginScreen()) ?? false;
       if (loginSuccess) {
         onLoginSuccess?.call();

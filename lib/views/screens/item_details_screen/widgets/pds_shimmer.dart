@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import '../../../../utils/app_imports.dart';
 import 'gender_widget.dart';
 
@@ -17,26 +16,13 @@ class PdsShimmer extends StatelessWidget {
                 Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 288,
-                      child: CarouselSlider(
-                        items: ['']
-                            .map(
-                              (item) => AppNetworkImage(
-                                  imageUrl: item,
-                                  radiusValue: 0,
-                                  fit: BoxFit.cover,
-                                  width: double.infinity),
-                            )
-                            .toList(),
-                        options: CarouselOptions(
-                          height: 288,
-                          autoPlay: true,
-                          enlargeCenterPage: true,
-                          autoPlayInterval: const Duration(seconds: 4),
-                          viewportFraction: 1,
-                        ),
-                      ),
+                      child: AppNetworkImage(
+                          imageUrl: 'item',
+                          radiusValue: 0,
+                          fit: BoxFit.cover,
+                          width: double.infinity),
                     ),
                     customDotsIndicator(length: 4),
                     Positioned(
