@@ -8,6 +8,7 @@ export 'package:get/get.dart';
 export 'package:skeletonizer/skeletonizer.dart';
 
 // App wide custom imports
+export 'package:pinkpawscat/models/user_model.dart';
 export 'package:pinkpawscat/models/pet_model.dart';
 export 'package:pinkpawscat/views/widgets/app_network_image.dart';
 export 'package:pinkpawscat/views/widgets/app_refresh_indicator.dart';

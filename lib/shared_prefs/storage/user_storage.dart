@@ -1,5 +1,4 @@
 import 'dart:convert';
-import '../../models/user_model.dart';
 import '../../utils/app_imports.dart';
 
 class UserStorage {

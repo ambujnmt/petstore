@@ -30,6 +30,7 @@ class UserController {
     }
     await SharedPrefs.clear();
     await AppLoader.close();
+    AuthPrefs.setonBoard(true);
     return true;
   }
 

@@ -65,19 +65,21 @@ class PdsImgSliderWidget extends StatelessWidget {
                             ColorConstants.splashColor.withValues(alpha: .6)),
                     bgColor: black.withValues(alpha: .1)),
                 Obx(
-                  () => customIconButton(
-                    padding: 0,
-                    iconSize: 26,
-                    bgColor: black.withValues(alpha: .1),
-                    iconColor: con.isFav.value ? red : white,
-                    icon: con.isFav.value
-                        ? Icons.favorite
-                        : Icons.favorite_outline,
-                    border: Border.all(
-                        color:
-                            ColorConstants.splashColor.withValues(alpha: .6)),
-                    onTap: () => con.toggleFavPet(con.petData.value!),
-                  ),
+                  () => con.user.value == null
+                      ? const SizedBox()
+                      : customIconButton(
+                          padding: 0,
+                          iconSize: 26,
+                          bgColor: black.withValues(alpha: .1),
+                          iconColor: con.isFav.value ? red : white,
+                          icon: con.isFav.value
+                              ? Icons.favorite
+                              : Icons.favorite_outline,
+                          border: Border.all(
+                              color: ColorConstants.splashColor
+                                  .withValues(alpha: .6)),
+                          onTap: () => con.toggleFavPet(con.petData.value!),
+                        ),
                 )
               ],
             ),

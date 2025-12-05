@@ -1,4 +1,3 @@
-import 'package:pinkpawscat/models/user_model.dart';
 import 'package:pinkpawscat/utils/app_imports.dart';
 
 class LikedScreenController extends GetxController {

@@ -5,6 +5,7 @@ import '../../../utils/app_imports.dart';
 class PetDetailsScreenController extends GetxController {
   PetModel pet;
   PetDetailsScreenController({required this.pet});
+  final user = Rxn<UserModel>(UserStorage.getUserData());
   final lc = Get.find<LikedScreenController>();
 
   final isFav = false.obs;
