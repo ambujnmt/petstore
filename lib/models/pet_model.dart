@@ -35,7 +35,7 @@ class PetModel {
     return PetModel(
       id: json['id'].toString(),
       name: json['name'] ?? '',
-      price: json['price'] ?? '',
+      price: nullOrEmptyToNA(json['price'], customText: '____'),
       stock: json['stock'] ?? 0,
       stockStatus: json['stock_status'] ?? '',
       image: json['image'] ?? '',

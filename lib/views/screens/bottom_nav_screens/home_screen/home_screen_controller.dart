@@ -1,5 +1,3 @@
-import 'package:pinkpawscat/models/category_model.dart';
-
 import '../../../../utils/app_imports.dart';
 
 class HomeScreenController extends GetxController {

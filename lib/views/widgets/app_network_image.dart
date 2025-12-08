@@ -8,6 +8,8 @@ class AppNetworkImage extends StatelessWidget {
   final BoxFit? fit;
   final Widget? placeholder;
   final Widget? errorWidget;
+  final String? cacheKey;
+  final bool useOldImageOnUrlChange;
   const AppNetworkImage({
     super.key,
     this.imageUrl,
@@ -17,6 +19,8 @@ class AppNetworkImage extends StatelessWidget {
     this.fit,
     this.placeholder,
     this.errorWidget,
+    this.cacheKey,
+    this.useOldImageOnUrlChange = false,
   });
 
   @override
@@ -29,6 +33,8 @@ class AppNetworkImage extends StatelessWidget {
         height: height,
         width: width,
         imageUrl: imageUrl ?? '',
+        cacheKey: cacheKey,
+        useOldImageOnUrlChange: useOldImageOnUrlChange,
         fit: fit ?? BoxFit.cover,
         placeholder: (context, url) => placeholder ?? imgPlaceholder(fit: fit),
         errorWidget: (context, url, error) => errorWidget ?? imgError(fit: fit),

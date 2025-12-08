@@ -1,7 +1,7 @@
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen_controller.dart';
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/widgets/fs_shimmer.dart';
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/widgets/ls_card_widget.dart';
-import 'package:pinkpawscat/views/screens/bottom_nav_screens/profile_screen/profile_screen_controller.dart';
+import 'like_screen_controller.dart';
+import 'widgets/fs_shimmer.dart';
+import 'widgets/ls_card_widget.dart';
+import '../profile_screen/profile_screen_controller.dart';
 
 import '../../../../utils/app_imports.dart';
 import '../profile_screen/widgets/goto_login_button.dart';

@@ -37,26 +37,15 @@ class FeaturedPetCardWidget extends StatelessWidget {
                               width: Get.width,
                             ),
                             const Positioned(
-                                top: 13,
-                                left: 10,
-                                child: AppButton(
-                                  intrinsicWidth: true,
-                                  height: 20,
-                                  bgColorOpacity: .65,
-                                  text: 'Featured',
-                                )),
-                            // Positioned(
-                            //   top: 10,
-                            //   right: 10,
-                            //   child: customIconButton(
-                            //     icon: Icons.favorite,
-                            //     iconColor: Colors.black,
-                            //     size: 35,
-                            //     bgColor: white,
-                            //     padding: 0,
-                            //     onTap: () => AppToast.show('Coming soon.'),
-                            //   ),
-                            // ),
+                              top: 13,
+                              left: 10,
+                              child: AppButton(
+                                intrinsicWidth: true,
+                                height: 20,
+                                bgColorOpacity: .65,
+                                text: 'Featured',
+                              ),
+                            ),
                           ],
                         ),
                         Padding(

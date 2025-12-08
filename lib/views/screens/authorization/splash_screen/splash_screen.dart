@@ -36,7 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
           transition: Transition.fadeIn);
       return;
     }
-    await waitForMilliSec(300);
+    if (UserStorage.getToken() != null) {
+      await UserController.refreshUserData();
+    } else {
+      await waitForMilliSec(300);
+    }
     Get.offAll(() => const BottomNavScreen(), transition: Transition.topLevel);
   }
 

@@ -34,15 +34,13 @@ class UserController {
     return true;
   }
 
-  static Future<void> refreshUserData([int? userId]) async {
-    if (userId == null) {
-      final user = UserStorage.getUserData();
-      userId = user!.id;
-    }
+  static Future<bool> refreshUserData() async {
     final res = await _fetchUserData();
     if (res != null) {
-      await UserStorage.setUserData(res['data']);
+      await UserStorage.setUserData(res['profile']);
+      return true;
     }
+    return false;
   }
 
   static Future _fetchUserData() async {

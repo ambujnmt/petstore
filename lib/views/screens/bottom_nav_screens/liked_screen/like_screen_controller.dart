@@ -3,7 +3,7 @@ import 'package:pinkpawscat/utils/app_imports.dart';
 class LikedScreenController extends GetxController {
   final isLoading = true.obs;
 
-  final user = Rxn<UserModel>(UserStorage.getUserData());
+  final user = Rxn<UserModel>();
 
   final favPets = Rxn<List<PetModel>>();
 

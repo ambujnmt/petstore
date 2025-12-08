@@ -1,4 +1,7 @@
+import 'package:pinkpawscat/views/screens/bottom_nav_screens/menu_screen/widgets/ms_shimmer.dart';
+import 'package:pinkpawscat/views/screens/category_details_screen/category_details_screen.dart';
 import '../../../../utils/app_imports.dart';
+import 'menu_screen_controller.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -9,27 +12,37 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen>
     with AutomaticKeepAliveClientMixin {
+  final con = Get.put(MenuScreenController());
   @override
   bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return AppScaffold(
-        appBar: customAppBar(title: 'Category', hideLeadign: true),
-        body: (_) => ListView(
-              children: [
-                heightSpace15,
-                GridView.builder(
-                  itemCount: _cats.length,
+      appBar: customAppBar(title: 'Category', hideLeadign: true),
+      body: (_) => Obx(
+        () => con.isLoding.value
+            ? const MsShimmer()
+            : AppRefreshIndicator(
+                onRefresh: con.refreshData,
+                error: con.categories.value == null,
+                message: 'Something went wrong.',
+                child: GridView.builder(
+                  padding: AppDimentions.defaultScreenPadding,
+                  itemCount: con.categories.value!.length,
                   shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, childAspectRatio: .9),
+                    crossAxisCount: 2,
+                    childAspectRatio: .9,
+                    mainAxisSpacing: 15,
+                    crossAxisSpacing: 15,
+                  ),
                   itemBuilder: (context, index) {
-                    final item = _cats[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 5),
+                    final item = con.categories.value![index];
+                    return GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () =>
+                          Get.to(() => CategoryDetailsScreen(category: item)),
                       child: Column(
                         children: [
                           Expanded(
@@ -40,28 +53,19 @@ class _MenuScreenState extends State<MenuScreen>
                                 padding: EdgeInsets.zero,
                                 height: constraints.maxHeight,
                                 width: constraints.maxHeight,
-                                child: Image.asset(item['img']!,
-                                    fit: BoxFit.cover),
+                                child: AppNetworkImage(imageUrl: item.image),
                               ),
                             ),
                           ),
                           heightSpace5,
-                          CustomText.qText(item['title']!, size: 20)
+                          CustomText.qText(item.name, size: 20)
                         ],
                       ),
                     );
                   },
                 ),
-              ],
-            ));
+              ),
+      ),
+    );
   }
 }
-
-final _cats = [
-  {'title': 'Munchkin', 'img': 'assets/images/cat1.png'},
-  {'title': 'Ragdoll', 'img': 'assets/images/cat2.png'},
-  {'title': 'British shorthair', 'img': 'assets/images/cat3.png'},
-  {'title': 'Persian', 'img': 'assets/images/cat4.png'},
-  {'title': 'Caracal', 'img': 'assets/images/cat5.png'},
-  {'title': 'Maine coon', 'img': 'assets/images/fav-cat1.jpg'}
-];

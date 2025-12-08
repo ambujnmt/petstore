@@ -100,28 +100,31 @@ class _ProfileScreenState extends State<ProfileScreen>
                   _buildMenuItem(
                       imgIcon: Images.cartIcon,
                       'Order History',
-                      () => Get.to(() => OrderHistoryScreen())),
+                      onTap: () => Get.to(() => OrderHistoryScreen())),
                   _buildMenuItem(
-                      imgIcon: Images.locationPinIcon1, "Save Address", () {
-                    Get.to(() => const SaveAddressScreen());
-                  }),
-                  _buildMenuItem(imgIcon: Images.cardIcon, "Payment Methods",
-                      () {
-                    Get.to(() => const PaymentMethodsScreen());
-                  }),
+                      imgIcon: Images.locationPinIcon1,
+                      "Save Address",
+                      onTap: () => Get.to(() => const SaveAddressScreen())),
+                  _buildMenuItem(
+                      imgIcon: Images.cardIcon,
+                      "Payment Methods",
+                      onTap: () => Get.to(() => const PaymentMethodsScreen())),
                 ],
-                _buildMenuItem(imgIcon: Images.infoIcon, "About Us", () {
-                  Get.to(() => const AboutUsScreen());
-                }),
-                _buildMenuItem(imgIcon: Images.faqsIcon, "FAQs", () {
-                  Get.to(() => const FaqScreen());
-                }),
-                _buildMenuItem(imgIcon: Images.supportIcon, "Contact Us", () {
-                  Get.to(() => const ContactUsScreen());
-                }),
+                _buildMenuItem(
+                    imgIcon: Images.infoIcon,
+                    "About Us",
+                    onTap: () => Get.to(() => const AboutUsScreen())),
+                _buildMenuItem(
+                    imgIcon: Images.faqsIcon,
+                    "FAQs",
+                    onTap: () => Get.to(() => const FaqScreen())),
+                _buildMenuItem(
+                    imgIcon: Images.supportIcon,
+                    "Contact Us",
+                    onTap: () => Get.to(() => const ContactUsScreen())),
                 if (con.user.value != null)
                   _buildMenuItem(icon: Icons.power_settings_new, "Logout",
-                      () async {
+                      onTap: () async {
                     final success = await UserController.logoutUser();
                     if (success) {
                       con.refreshData();
@@ -136,8 +139,8 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 
-  Widget _buildMenuItem(String title, VoidCallback onTap,
-      {String? imgIcon, IconData? icon}) {
+  Widget _buildMenuItem(String title,
+      {required VoidCallback onTap, String? imgIcon, IconData? icon}) {
     return CustomContainer.lightContainer(
       color: Colors.white,
       margin: const EdgeInsets.symmetric(vertical: 8),
