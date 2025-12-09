@@ -20,10 +20,16 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.rightToLeft,
       theme: ThemeData(
         scaffoldBackgroundColor: white,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: ColorConstants.selectedColor),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
+      routingCallback: (routing) {
+        if (routing != null) {
+          closeKeyboard();
+        }
+      },
     );
   }
 }

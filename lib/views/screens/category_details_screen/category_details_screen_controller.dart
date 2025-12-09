@@ -23,9 +23,9 @@ class CategoryDetailsScreenController extends GetxController {
     isLoading(false);
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    refreshData();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   refreshData();
+  // }
 }

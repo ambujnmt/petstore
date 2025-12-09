@@ -9,6 +9,8 @@ class CategoryDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final con = Get.put(CategoryDetailsScreenController(category: category));
-    return const Placeholder();
+    return AppScaffold(
+      appBar: customAppBar(title: 'Details'),
+    );
   }
 }
