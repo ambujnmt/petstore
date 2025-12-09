@@ -50,4 +50,5 @@ class Images {
   static const plusIcon = 'assets/images/icons/plus.png';
   static const minusIcon = 'assets/images/icons/minus.png';
   static const deleteIcon = 'assets/images/icons/delete.png';
+  static const editImg = 'assets/images/icons/edit_img.png';
 }

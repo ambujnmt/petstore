@@ -32,7 +32,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         body: Obx(() =>
             IndexedStack(index: _con.currentIndex.value, children: _pages)),
         bottomNavigationBar: Container(
-          height: 60,
+          padding: const EdgeInsets.symmetric(
+              vertical: AppDimentions.screenPaddingXS,
+              horizontal: AppDimentions.screenPadding),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -46,7 +48,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           ),
           child: Obx(
             () => Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(_tabs.length, (index) {
                   final item = _tabs[index];
                   final isActive = _con.currentIndex.value == index;

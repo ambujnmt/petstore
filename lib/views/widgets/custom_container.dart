@@ -30,7 +30,11 @@ class CustomContainer {
 
     // APPLY CLIPPING ONLY WHEN NECESSARY
     if (shape == BoxShape.circle) {
-      content = ClipOval(child: content);
+      content = ClipOval(
+        child: Padding(
+            padding: padding ?? EdgeInsets.all(paddingValue ?? 10),
+            child: content),
+      );
     } else if (radiusFinal != null) {
       content = ClipRRect(borderRadius: radiusFinal, child: content);
     }
@@ -40,7 +44,9 @@ class CustomContainer {
         width: width,
         margin: margin,
         clipBehavior: shape == BoxShape.circle ? Clip.antiAlias : Clip.none,
-        padding: padding ?? EdgeInsets.all(paddingValue ?? 10),
+        padding: shape == BoxShape.circle
+            ? null
+            : padding ?? EdgeInsets.all(paddingValue ?? 10),
         decoration: BoxDecoration(
           shape: shape,
           border: border,

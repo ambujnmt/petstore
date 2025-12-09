@@ -14,4 +14,7 @@ class AppDimentions {
   static const boxRadiusS = 8.0;
   static const boxRadiusXS = 4.0;
   static const boxRadiusXXS = 2.0;
+  static const boxRadiusL = 14;
+  static const boxRadiusXL = 18.0;
+  static const boxRadiusXXL = 22.0;
 }

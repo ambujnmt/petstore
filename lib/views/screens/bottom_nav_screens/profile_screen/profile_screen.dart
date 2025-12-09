@@ -1,4 +1,5 @@
 import 'package:pinkpawscat/views/screens/bottom_nav_screens/liked_screen/like_screen_controller.dart';
+import 'package:pinkpawscat/views/screens/update_profile_screen/update_profile_screen.dart';
 
 import '../../../../utils/app_imports.dart';
 import 'package:pinkpawscat/views/screens/payment_methods_screen/payment_methods_screen.dart';
@@ -84,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                     suffix: [
                       Image.asset(Images.editIcon, height: 16, width: 16)
                     ],
-                    onTap: () => AppToast.show('Coming soon.'),
+                    onTap: () => Get.to(() => UpdateProfileScreen()),
                   )
                 ] else ...[
                   heightSpace20,
@@ -141,17 +142,28 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   Widget _buildMenuItem(String title,
       {required VoidCallback onTap, String? imgIcon, IconData? icon}) {
-    return CustomContainer.lightContainer(
-      color: Colors.white,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.symmetric(vertical: 2),
-      child: ListTile(
-        leading: imgIcon != null
-            ? Image.asset(height: 25, width: 25, imgIcon, color: black)
-            : Icon(icon, size: 26, color: Colors.black),
-        title: CustomText.pText(title, size: 16),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 18),
-        onTap: onTap,
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: CustomContainer.lightContainer(
+        color: Colors.white,
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(
+            vertical: AppDimentions.screenPaddingXXS),
+        child: Padding(
+          padding: const EdgeInsets.all(AppDimentions.screenPaddingS),
+          child: Row(
+            children: [
+              imgIcon != null
+                  ? Image.asset(height: 25, width: 25, imgIcon, color: black)
+                  : Icon(icon, size: 26, color: Colors.black),
+              widthSpace12,
+              Expanded(child: CustomText.pText(title, size: 16)),
+              widthSpace10,
+              const Icon(Icons.arrow_forward_ios, size: 18)
+            ],
+          ),
+        ),
       ),
     );
   }

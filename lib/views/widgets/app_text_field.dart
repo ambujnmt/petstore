@@ -20,7 +20,9 @@ class AppTextField extends StatelessWidget {
   final int? maxLines;
   final List<Widget>? actions;
   final double? bottomPadding;
+  final double? radiusValue;
   final EdgeInsetsGeometry? padding;
+  final bool isDense;
   AppTextField({
     super.key,
     this.controller,
@@ -30,9 +32,11 @@ class AppTextField extends StatelessWidget {
     this.padding,
     this.capitalization,
     this.inputAction,
+    this.isDense = true,
     this.label,
     this.hintText,
     this.prefixIcon,
+    this.radiusValue,
     this.minLines,
     this.maxLines,
     this.bottomPadding,
@@ -53,7 +57,9 @@ class AppTextField extends StatelessWidget {
         if (label != null) ...[
           Row(
             children: [
-              Flexible(child: CustomText.qText(label!)),
+              widthSpace5,
+              Flexible(
+                  child: CustomText.qText(label!, weight: FontWeight.w700)),
               if (isRequired) CustomText.qText('*', color: red)
             ],
           ),
@@ -63,6 +69,7 @@ class AppTextField extends StatelessWidget {
           () => TextField(
             controller: controller,
             focusNode: node,
+            readOnly: readOnly,
             textInputAction: inputAction,
             keyboardType: inputType,
             textCapitalization: capitalization ?? TextCapitalization.none,
@@ -72,15 +79,17 @@ class AppTextField extends StatelessWidget {
             maxLines: useObscure ? 1 : maxLines,
             onChanged: onChanged ?? (value) => errorText!(''),
             decoration: InputDecoration(
+              isDense: isDense,
               prefixIcon: prefixIcon,
               contentPadding: padding,
               errorText: errorText!.value.isEmpty ? null : errorText!.value,
               errorStyle: CustomText.qTextStyle(size: 15),
               hintText: hintText ?? "Input text",
               hintStyle: CustomText.qTextStyle(size: textSize),
-              border: _outlineInputBorder,
-              enabledBorder: _outlineInputBorder,
-              focusedBorder: _outlineInputBorder.copyWith(
+              border: _outlineInputBorder(radiusValue: radiusValue),
+              enabledBorder: _outlineInputBorder(radiusValue: radiusValue),
+              focusedBorder:
+                  _outlineInputBorder(radiusValue: radiusValue).copyWith(
                 borderSide: const BorderSide(color: Colors.pink, width: 2),
               ),
               suffixIcon: IntrinsicWidth(
@@ -109,7 +118,10 @@ class AppTextField extends StatelessWidget {
   }
 }
 
-final _outlineInputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(12),
-  borderSide: const BorderSide(color: Colors.grey),
-);
+OutlineInputBorder _outlineInputBorder({double? radiusValue}) {
+  return OutlineInputBorder(
+    borderRadius:
+        BorderRadius.circular(radiusValue ?? AppDimentions.defaultBoxRadius),
+    borderSide: BorderSide(color: grey[400]!),
+  );
+}

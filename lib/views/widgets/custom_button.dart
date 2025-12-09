@@ -33,7 +33,7 @@ class AppButton extends StatelessWidget {
     this.transparent = false,
     this.hideBorder = false,
     this.hideShadow = true,
-    this.height = 50,
+    this.height = 45,
     this.radius,
     this.bgColorOpacity = 1.0,
     this.bgColor,
