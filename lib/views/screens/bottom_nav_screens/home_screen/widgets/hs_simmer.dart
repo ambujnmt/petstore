@@ -149,14 +149,10 @@ class HsShimmer extends StatelessWidget {
                               width: double.infinity,
                               fit: BoxFit.fill,
                             ),
-                            Positioned(
+                            const Positioned(
                               top: 20,
                               left: 20,
-                              child: Image.asset(
-                                'assets/images/featuredbtn.png',
-                                width: 60,
-                                height: 20,
-                              ),
+                              child: Text('assets'),
                             ),
                             Positioned(
                               top: 10,
@@ -260,15 +256,6 @@ class HsShimmer extends StatelessWidget {
                                   size: 12,
                                   color: const Color(0xFF4B5563),
                                   align: TextAlign.center,
-                                ),
-                                const Spacer(),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    'assets/images/viewdetails_btn.png',
-                                    width: 90,
-                                    height: 20,
-                                  ),
                                 ),
                               ],
                             ),

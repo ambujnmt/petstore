@@ -28,4 +28,19 @@ class UserModel {
       'mobile': mobile,
     };
   }
+
+  // copyWith method
+  UserModel copyWith({
+    int? id,
+    String? displayName,
+    String? email,
+    String? mobile,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      displayName: displayName ?? this.displayName,
+      email: email ?? this.email,
+      mobile: mobile ?? this.mobile,
+    );
+  }
 }

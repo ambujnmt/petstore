@@ -57,7 +57,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                     child: AnimatedContainer(
                       width: isActive ? 90 : 40,
                       height: 36,
-                      duration: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 150),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         gradient: isActive

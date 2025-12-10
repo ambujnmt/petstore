@@ -1,3 +1,4 @@
+import 'package:pinkpawscat/models/about_us_model.dart';
 import 'package:pinkpawscat/views/widgets/dotted_line_widget.dart';
 
 import '../../../utils/app_imports.dart';
@@ -10,80 +11,138 @@ class AboutUsScreen extends StatefulWidget {
 }
 
 class _AboutUsScreenState extends State<AboutUsScreen> {
+  final isLoading = true.obs;
+
+  final abotData = Rxn<AboutUsModel>();
+
+  Future<void> _getFaqs() async {
+    final res = await ApiServices.get('/about');
+    if (res != null) {
+      abotData.value = AboutUsModel.fromJson(res);
+    }
+    setState(() {});
+  }
+
+  Future<void> refreshData() async {
+    isLoading(true);
+    abotData.value = null;
+    await _getFaqs();
+    isLoading(false);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    refreshData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       appBar: customAppBar(title: 'About Us'),
-      body: (size) => ListView(
-        children: [
-          heightSpace10,
-          Image.asset(
-            height: 180,
-            width: Get.width,
-            fit: BoxFit.cover,
-            Images.aboutUs,
-          ),
-          heightSpace20,
-          Column(
-            children: [
-              _customWidget(
-                'About Pink Paws',
-                'British Shorthair breeder Jacksonville—that’s who we are. At Pink Paws Cattery, we’re a family-owned, TICA Registered cattery passionately raising healthy and socialized British Shorthair (and Longhair) kittens in a loving Jacksonville home.',
-              ),
-              _customWidget(
-                'Who We Are',
-                'At Pink Paws Cattery, our mission is to raise and nurture healthy British Shorthair and Longhair kittens that bring lasting joy and companionship to families. As trusted cat breeders in Florida, we take pride in offering kittens raised in a nurturing, ethical, and family-centered environment. Every kitten is prepared to transition smoothly into their forever home, ensuring lifelong happiness for both pet and owner.',
-                subTitle: 'Purebred British Shorthair and Longhair Kittens',
-              ),
-              heightSpace10,
-              Padding(
-                padding: AppDimentions.defaultScreenPadding,
-                child: SizedBox(
-                  height: 280,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+      body: (size) => Obx(
+        () => isLoading.value
+            ? AppLoader.widget()
+            : abotData.value == null
+                ? AppRefreshIndicator(
+                    onRefresh: refreshData,
+                    error: true,
+                    message: 'Something went wrong, please try again.',
+                  )
+                : ListView(
                     children: [
-                      _customContainerWidget(
-                        'Happy & Healthy',
-                        'The health and happiness of our kittens are always our top priorities. Each kitten comes with age appropriate vaccinations, a microchip, dewormer, and a thorough veterinary check. As dedicated Florida cat breeders, we make sure every kitten has the best start in life, ready to enjoy a long and healthy journey with their new family.',
+                      heightSpace10,
+                      AppNetworkImage(
+                        imageUrl: abotData.value!.image1,
+                        radiusValue: 0,
+                        height: 180,
+                        width: Get.width,
                       ),
-                      widthSpace13,
-                      _customContainerWidget(
-                        'Ethical Practices & Standards',
-                        'At Pink Paws Cattery, we follow strict ethical breeding practices and uphold the highest standards of care. As TICA-registered cat breeders in Florida, we ensure that all of our kittens receive proper health checks and socialization, so they grow into confident and affectionate companions.',
-                      ),
+                      heightSpace20,
+                      Column(
+                        children: [
+                          if (abotData.value?.title != null &&
+                              abotData.value!.description != null)
+                            _customWidget(abotData.value!.title!,
+                                abotData.value!.description!),
+                          if (abotData.value?.wwrHeading != null &&
+                              abotData.value!.wwrDescription != null)
+                            _customWidget(
+                              abotData.value!.wwrHeading!,
+                              abotData.value!.wwrDescription!,
+                              subTitle:
+                                  'Purebred British Shorthair and Longhair Kittens',
+                            ),
+                          heightSpace10,
+                          Padding(
+                            padding: AppDimentions.defaultScreenPadding,
+                            child: SizedBox(
+                              height: 280,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  if (abotData.value?.hhTitle != null &&
+                                      abotData.value!.hhDesc != null)
+                                    _customContainerWidget(
+                                      abotData.value!.hhTitle!,
+                                      abotData.value!.hhDesc!,
+                                    )
+                                  else
+                                    const Expanded(child: SizedBox()),
+                                  widthSpace13,
+                                  if (abotData.value?.ethicalBreedingHeading !=
+                                          null &&
+                                      abotData.value!
+                                              .ethicalBreedingDescription !=
+                                          null)
+                                    _customContainerWidget(
+                                      abotData.value!.ethicalBreedingHeading!,
+                                      abotData
+                                          .value!.ethicalBreedingDescription!,
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          heightSpace30,
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              CustomContainer.lightContainer(
+                                  isGradient: true,
+                                  bgColorOpacity: .65,
+                                  width: Get.width,
+                                  radiusValue: 0),
+                              CustomContainer.lightContainer(
+                                shape: BoxShape.circle,
+                                padding: const EdgeInsets.all(
+                                    AppDimentions.screenPaddingXXS),
+                                child: CustomContainer.lightContainer(
+                                  height: 260,
+                                  width: 260,
+                                  shape: BoxShape.circle,
+                                  padding: EdgeInsets.zero,
+                                  child: AppNetworkImage(
+                                      radiusValue: 0,
+                                      imageUrl: abotData.value!.image2),
+                                ),
+                              ),
+                            ],
+                          ),
+                          heightSpace20,
+                          if (abotData.value?.deliverTitle != null &&
+                              abotData.value!.deliverDesc != null)
+                            _customWidget(
+                              abotData.value!.deliverTitle!,
+                              abotData.value!.deliverDesc!,
+                              subTitle:
+                                  'Purebred British Shorthair and Longhair Kittens',
+                            ),
+                          heightSpace70
+                        ],
+                      )
                     ],
                   ),
-                ),
-              ),
-              heightSpace30,
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  CustomContainer.lightContainer(
-                      isGradient: true,
-                      bgColorOpacity: .65,
-                      width: Get.width,
-                      radiusValue: 0),
-                  CustomContainer.lightContainer(
-                      height: 260,
-                      width: 260,
-                      shape: BoxShape.circle,
-                      padding:
-                          const EdgeInsets.all(AppDimentions.screenPaddingXXS),
-                      child: Image.asset(Images.aboutUs2)),
-                ],
-              ),
-              heightSpace20,
-              _customWidget(
-                'Nurtured with Love, Delivered with Care',
-                'We are among the most trusted cat breeders in Florida, specializing in British Shorthair and Longhair kittens. Our focus is on quality over quantity, giving each kitten personalized attention, early socialization, and love from day one. Unlike large-scale breeders, our family-owned cattery raises cats in a warm, home-based environment. Each kitten is nurtured to be friendly, confident, and ready to become a cherished part of your family.',
-                subTitle: 'Purebred British Shorthair and Longhair Kittens',
-              ),
-              heightSpace70
-            ],
-          )
-        ],
       ),
     );
   }

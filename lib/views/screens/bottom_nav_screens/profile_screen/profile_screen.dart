@@ -7,7 +7,7 @@ import 'package:pinkpawscat/views/screens/about_us_screen/about_us_screen.dart';
 import 'package:pinkpawscat/views/screens/contact_us_screen/contact_us_screen.dart';
 import 'package:pinkpawscat/views/screens/faq_screen/faq_screen.dart';
 import '../../order_history_screen/order_history_screen.dart';
-import '../../saved_address_screen/saved_address_screen.dart';
+import '../../address_screens/saved_address_screen/saved_address_screen.dart';
 import 'profile_screen_controller.dart';
 import 'widgets/goto_login_button.dart';
 
