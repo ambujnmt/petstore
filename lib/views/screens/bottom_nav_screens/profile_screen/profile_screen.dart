@@ -122,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 _buildMenuItem(
                     imgIcon: Images.supportIcon,
                     "Contact Us",
-                    onTap: () => Get.to(() => const ContactUsScreen())),
+                    onTap: () => Get.to(() => ContactUsScreen())),
                 if (con.user.value != null)
                   _buildMenuItem(icon: Icons.power_settings_new, "Logout",
                       onTap: () async {

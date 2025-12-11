@@ -73,7 +73,8 @@ class AppTextField extends StatelessWidget {
             textInputAction: inputAction,
             keyboardType: inputType,
             textCapitalization: capitalization ?? TextCapitalization.none,
-            style: CustomText.pTextStyle(size: textSize),
+            style: CustomText.pTextStyle(
+                size: textSize, color: readOnly ? grey[600] : null),
             obscureText: obscureText.value,
             minLines: useObscure ? 1 : minLines ?? 1,
             maxLines: useObscure ? 1 : maxLines,
@@ -84,13 +85,22 @@ class AppTextField extends StatelessWidget {
               contentPadding: padding,
               errorText: errorText!.value.isEmpty ? null : errorText!.value,
               errorStyle: CustomText.qTextStyle(size: 15),
-              hintText: hintText ?? "Input text",
-              hintStyle: CustomText.qTextStyle(size: textSize),
+              hint: Row(
+                children: [
+                  CustomText.pText(hintText ?? '', size: textSize, color: grey),
+                  if (label == null && isRequired)
+                    CustomText.pText(
+                      '*',
+                      color: red.withValues(alpha: .7),
+                    )
+                ],
+              ),
               border: _outlineInputBorder(radiusValue: radiusValue),
               enabledBorder: _outlineInputBorder(radiusValue: radiusValue),
               focusedBorder:
                   _outlineInputBorder(radiusValue: radiusValue).copyWith(
-                borderSide: const BorderSide(color: Colors.pink, width: 2),
+                borderSide: const BorderSide(
+                    color: ColorConstants.selectedColor, width: 2),
               ),
               suffixIcon: IntrinsicWidth(
                 child: Row(

@@ -9,9 +9,10 @@ class UpdateProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      appBar: customAppBar(title: 'Profile Update'),
       body: (size) =>
           ListView(padding: AppDimentions.defaultScreenPadding, children: [
-        heightSpace30,
+        heightSpace40,
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -63,6 +64,7 @@ class UpdateProfileScreen extends StatelessWidget {
           errorText: _con.fNameError,
           bottomPadding: 22,
           isRequired: true,
+          inputAction: TextInputAction.next,
         ),
         AppTextField(
           label: 'Last Name',
@@ -72,6 +74,7 @@ class UpdateProfileScreen extends StatelessWidget {
           errorText: _con.lNameError,
           bottomPadding: 22,
           isRequired: true,
+          inputAction: TextInputAction.done,
         ),
         AppTextField(
           label: 'Email Address',
@@ -83,16 +86,6 @@ class UpdateProfileScreen extends StatelessWidget {
           readOnly: true,
           isRequired: true,
         ),
-        // AppTextField(
-        //   label: 'Phone Number',
-        //   controller: _con.phoneController,
-        //   hintText: 'Enter your phone number',
-        //   bottomPadding: 22,
-        //   errorText: _con.phoneError,
-        //   radiusValue: AppDimentions.boxRadiusXL,
-        //   isRequired: true,
-        //   readOnly: _con.user.value!.mobile.isNotEmpty,
-        // ),
         heightSpace30,
         AppButton(text: 'Save & Change', onTap: () => _con.onSubmit()),
         heightSpace70
