@@ -1,7 +1,6 @@
+import 'package:pinkpawscat/views/screens/order_summery_screen/order_summery_screen.dart';
 import 'package:pinkpawscat/views/widgets/dotted_line_widget.dart';
-
 import '../../../utils/app_imports.dart';
-import 'package:pinkpawscat/views/screens/address_billing_page.dart';
 
 import 'my_cart_screen_controller.dart';
 
@@ -107,14 +106,16 @@ class MyCartScreen extends StatelessWidget {
                     child: Row(
                   children: [
                     Expanded(
-                        child: AppTextField(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 0,
-                          horizontal: AppDimentions.screenPaddingXXS),
-                      maxLines: 1,
-                      textSize: 18,
-                      bottomPadding: 0,
-                    )),
+                      child: AppTextField(
+                        maxLines: 1,
+                        textSize: 18,
+                        bottomPadding: 0,
+                        hintText: 'Coupon code',
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 0,
+                            horizontal: AppDimentions.screenPaddingXXS),
+                      ),
+                    ),
                     widthSpace10,
                     AppButton(
                       radius: AppDimentions.boxRadiusS,
@@ -204,6 +205,7 @@ class MyCartScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                heightSpace70
               ],
             ),
           ),
@@ -215,7 +217,7 @@ class MyCartScreen extends StatelessWidget {
             AppDimentions.defaultScreenPadding.copyWith(bottom: 15, top: 10),
         child: AppButton(
           text: 'Proceed to chekout',
-          onTap: () => Get.to(() => const AddressBillingPage()),
+          onTap: () => Get.to(() => const OrderSummeryScreen()),
         ),
       )),
     );

@@ -8,6 +8,7 @@ export 'package:get/get.dart';
 export 'package:skeletonizer/skeletonizer.dart';
 
 // App wide custom imports
+export 'package:pinkpawscat/views/widgets/dotted_line_widget.dart';
 export 'package:pinkpawscat/models/address_model.dart';
 export 'package:pinkpawscat/views/widgets/app_dragable_sheet.dart';
 export 'package:pinkpawscat/models/category_model.dart';
