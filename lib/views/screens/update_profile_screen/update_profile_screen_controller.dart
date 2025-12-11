@@ -16,12 +16,15 @@ class UpdateProfileScreenController extends GetxController {
   final phoneError = ''.obs;
 
   Future<void> onSubmit() async {
-    if (!_validate() ||
-        !await AppDialog.confirm(
-            message: 'Are you sure you want to update your profile?')) {
+    if (!_validate()) return;
+
+    closeKeyboard();
+
+    if (!await AppDialog.confirm(
+        message: 'Are you sure you want to update your profile?')) {
       return;
     }
-    closeKeyboard();
+
     AppLoader.show();
     final res = await ApiServices.post('/update-profile', payload: {
       'first_name': fNameController.text,

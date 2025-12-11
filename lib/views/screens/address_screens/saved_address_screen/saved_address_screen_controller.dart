@@ -33,7 +33,7 @@ class SavedAddressScreenController extends GetxController {
     }
   }
 
-  Future<void> refreshUserData() async {
+  Future<void> refreshData() async {
     isLoading(true);
     addresses.value = null;
     user.value = UserStorage.getUserData();
@@ -46,6 +46,6 @@ class SavedAddressScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    refreshUserData();
+    refreshData();
   }
 }

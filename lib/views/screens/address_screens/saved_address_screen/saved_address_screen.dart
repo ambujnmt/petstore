@@ -25,7 +25,7 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
             ? AppLoader.widget()
             : _con.user.value == null
                 ? AppRefreshIndicator(
-                    onRefresh: _con.refreshUserData,
+                    onRefresh: _con.refreshData,
                     error: false,
                     child: ListView(
                       children: [
@@ -36,12 +36,12 @@ class _SaveAddressScreenState extends State<SaveAddressScreen> {
                   )
                 : _con.addresses.value == null
                     ? AppRefreshIndicator(
-                        onRefresh: _con.refreshUserData,
+                        onRefresh: _con.refreshData,
                         error: true,
                         message: 'Something went wrong.',
                       )
                     : AppRefreshIndicator(
-                        onRefresh: _con.refreshUserData,
+                        onRefresh: _con.refreshData,
                         error: _con.addresses.value!.isEmpty,
                         child: ListView(
                           padding: EdgeInsets.all(screenWidth * 0.04),

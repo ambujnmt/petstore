@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:pinkpawscat/views/screens/authorization/login_screen/login_screen.dart';
 import '../../utils/app_imports.dart';
 import 'api_headers.dart.dart';
 
@@ -104,7 +105,7 @@ class ApiServices {
     String method,
     String api, {
     Function(http.Response response)? onError,
-  }) {
+  }) async {
     final code = response.statusCode;
     debugPrint('api: ${method.toUpperCase()} $api');
     debugPrint('code: $code');
@@ -115,6 +116,10 @@ class ApiServices {
         return jsonDecode(response.body);
       case 204:
         return '';
+      case 401:
+        await AppLoader.close();
+        Get.to(() => LoginScreen());
+        return null;
       default:
         if (onError != null) {
           onError(response);
