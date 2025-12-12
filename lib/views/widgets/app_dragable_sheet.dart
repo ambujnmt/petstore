@@ -83,7 +83,6 @@ class _AppFixedBottomBarState extends State<AppFixedBottomBar> {
                           );
                           return;
                         }
-
                         if (velocity < -800) {
                           sheetController.animateTo(
                             widget.maxHeight,
@@ -102,24 +101,24 @@ class _AppFixedBottomBarState extends State<AppFixedBottomBar> {
                           curve: Curves.easeOut,
                         );
                       },
-                      child: const Center(
+                      child: Center(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: AppDimentions.screenPaddingS),
                           child: SizedBox(
                             width: 50,
                             height: 5,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
+                                color: Colors.grey[400],
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
+                    Divider(color: grey[200], height: 0),
                     Expanded(
                       child: MediaQuery.removePadding(
                         context: context,
@@ -127,7 +126,10 @@ class _AppFixedBottomBarState extends State<AppFixedBottomBar> {
                         child: ListView(
                           controller: scrollController,
                           padding: AppDimentions.defaultScreenPadding,
-                          children: widget.sliderWidgets ?? [],
+                          children: [
+                            heightSpace5,
+                            ...widget.sliderWidgets ?? []
+                          ],
                         ),
                       ),
                     ),
